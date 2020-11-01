@@ -48,6 +48,9 @@
     * JAXB 자바 표준을 사용하거나(JAXB Annotation을 Model Class에 추가)
 * 각 AWS 서비스의 HTTP Request/Response 형식은 AWS 사이트에 API Reference에 모두 나와 있음 --> 별도 설계가 필요하기 보다는 산출물만 만들면 된다는 것을 의미
 * 원래 AWS 서비스는 HTTPS를 사용하며, 만약 HTTPS 통신이 요구사항이라면 Spring Boot의 Tomcat에 HTTPS를 구성하지 않고 Tomcat의 앞쪽에 웹 서버에서 HTTPS를 두어 개발의 영향을 최소화 해야함
+* 테스트시 AWS SDK Java를 이용해야 하지만 Python 용으로 Boto3(리눅스에서 `pip install boto3`으로 설치가능)를 이용해서 예제를 같이 작성해야 함
+  * 개발 및 테스트 서버에서 Boto3로 테스트를 하는 과정이 반드시 필요하며 이 경우 서버 관리자 또는 운영자에게 설치를 요청해야 함
+  * 인터넷 다운로드를 하므로 관리자가 아니면 설치가 불가능
 
 ### IAM
 
