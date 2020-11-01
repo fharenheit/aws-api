@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.model.iam;
+package com.datadynamics.bigdata.api.service.iam.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -15,33 +15,52 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_iam_service")
-public class Service {
+@Entity(name = "api_iam_user")
+public class User {
 
     /**
-     * 서비스를 식별하기 위한 서비스 코드 (예; DYNAMODB)
+     * 사용자명
      */
     @Id
-    @Column(name = "service_code", columnDefinition = "VARCHAR(100)")
-    String serviceCode;
+    @Column(name = "username", columnDefinition = "VARCHAR(20)", nullable = false)
+    String username;
 
     /**
-     * 서비스 명칭 (예; DynamoDB)
+     * 이름
      */
-    @Column(name = "service_name", columnDefinition = "VARCHAR(10)", nullable = false)
-    String serviceName;
+    @Column(name = "name", columnDefinition = "VARCHAR(100)", nullable = false)
+    String name;
 
     /**
-     * 서비스의 세부 설명
+     * 부서코드
      */
-    @Column(name = "description", columnDefinition = "VARCHAR(255)", nullable = true)
-    String description;
+    @Column(name = "group_code", columnDefinition = "VARCHAR(100)")
+    String groupCode;
 
     /**
-     * 서비스의 Endpoint 주소(예; http://192.168.1.1:8080/s3)
+     * 전자우편
      */
-    @Column(name = "endpoint", columnDefinition = "VARCHAR(255)", nullable = true)
-    String endpoint;
+    @Column(name = "email", columnDefinition = "VARCHAR(100)")
+    String email;
+
+    /**
+     * 전화번호
+     */
+    @Column(name = "telephone", columnDefinition = "VARCHAR(100)")
+    String telephone;
+
+    /**
+     * 핸드폰 번호
+     */
+    @Column(name = "mobile", columnDefinition = "VARCHAR(100)")
+    String mobile;
+
+    /**
+     * 관리자 여부.
+     * 관리자인 경우 S3, Dynamo 등에서 관리자가 할 수 있는 일(Delete Bucket) 등을 추가로 할 수 있으므로 필요함.
+     */
+    @Column(name = "is_admin", columnDefinition = "boolean default false")
+    Boolean admin;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)

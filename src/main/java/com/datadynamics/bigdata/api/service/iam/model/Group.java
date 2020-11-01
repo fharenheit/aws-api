@@ -1,62 +1,35 @@
-package com.datadynamics.bigdata.api.model.iam;
+package com.datadynamics.bigdata.api.service.iam.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_iam_dynamo_permission")
-public class DynamoPermission {
+@Entity(name = "api_iam_group")
+public class Group {
 
+    /**
+     * 부서코드
+     */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    @Column(name = "group_code", columnDefinition = "VARCHAR(10)")
+    String group_code;
 
     /**
-     * 그룹 목록
+     * 부서명
      */
-    @Transient
-    List<Group> groups;
-
-    /**
-     * 사용자 목록
-     */
-    @Transient
-    List<User> users;
-
-    /**
-     * 스키마명
-     */
-    @Column(name = "schema_name")
-    String schemaName;
-
-    /**
-     * 테이블명
-     */
-    @Column(name = "table_name")
-    String tableName;
-
-    /**
-     * 상세 설명
-     */
-    @Column(name = "description")
-    String description;
-
-    /**
-     * 이 테이블이 Oracle인지 Greenplum에 있는 테이블인지를 식별하기 위한 코드.
-     */
-    @Column(name = "data_source_type", columnDefinition = "VARCHAR(20)", nullable = true)
-    @Enumerated(EnumType.STRING)
-    DataSourceTypeEnum dataSourceType;
+    @Column(name = "group_name", columnDefinition = "VARCHAR(100)")
+    String groupName;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)

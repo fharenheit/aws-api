@@ -1,6 +1,6 @@
 package com.datadynamics.bigdata.api.service.iam.repository;
 
-import com.datadynamics.bigdata.api.model.iam.DynamoPermissionGroup;
+import com.datadynamics.bigdata.api.service.iam.model.DynamoPermissionGroup;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

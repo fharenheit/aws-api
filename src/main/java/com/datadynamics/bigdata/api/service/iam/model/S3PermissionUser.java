@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.model.iam;
+package com.datadynamics.bigdata.api.service.iam.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -13,15 +13,16 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_iam_s3_permission_group")
-public class S3PermissionGroup {
+@Entity(name = "api_iam_permission_user")
+
+public class S3PermissionUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "group_code", columnDefinition = "VARCHAR(100)", nullable = false)
-    String groupCode;
+    @Column(name = "username", columnDefinition = "VARCHAR(100)", nullable = false, unique = true)
+    String username;
 
     @Column(name = "object_read")
     boolean objectRead;

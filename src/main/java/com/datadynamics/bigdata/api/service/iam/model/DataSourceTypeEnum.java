@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.model.iam;
+package com.datadynamics.bigdata.api.service.iam.model;
 
 import com.datadynamics.bigdata.api.model.BaseEnumCode;
 import lombok.AllArgsConstructor;

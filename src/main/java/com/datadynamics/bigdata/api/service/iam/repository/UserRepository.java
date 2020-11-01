@@ -1,6 +1,6 @@
 package com.datadynamics.bigdata.api.service.iam.repository;
 
-import com.datadynamics.bigdata.api.model.iam.User;
+import com.datadynamics.bigdata.api.service.iam.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

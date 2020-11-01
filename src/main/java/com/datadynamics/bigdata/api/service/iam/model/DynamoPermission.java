@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.model.iam;
+package com.datadynamics.bigdata.api.service.iam.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -14,8 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_iam_s3_permission")
-public class S3Permission {
+@Entity(name = "api_iam_dynamo_permission")
+public class DynamoPermission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,16 +34,29 @@ public class S3Permission {
     List<User> users;
 
     /**
-     * 버킷명
+     * 스키마명
      */
-    @Column(name = "bucket_name")
-    String bucketName;
+    @Column(name = "schema_name")
+    String schemaName;
+
+    /**
+     * 테이블명
+     */
+    @Column(name = "table_name")
+    String tableName;
 
     /**
      * 상세 설명
      */
     @Column(name = "description")
     String description;
+
+    /**
+     * 이 테이블이 Oracle인지 Greenplum에 있는 테이블인지를 식별하기 위한 코드.
+     */
+    @Column(name = "data_source_type", columnDefinition = "VARCHAR(20)", nullable = true)
+    @Enumerated(EnumType.STRING)
+    DataSourceTypeEnum dataSourceType;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)

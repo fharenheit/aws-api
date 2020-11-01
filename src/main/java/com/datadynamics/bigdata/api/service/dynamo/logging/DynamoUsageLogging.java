@@ -1,6 +1,6 @@
 package com.datadynamics.bigdata.api.service.dynamo.logging;
 
-import com.datadynamics.bigdata.api.model.iam.DataSourceTypeEnum;
+import com.datadynamics.bigdata.api.service.iam.model.DataSourceTypeEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
