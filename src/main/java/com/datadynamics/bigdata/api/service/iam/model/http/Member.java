@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.service.iam.model;
+package com.datadynamics.bigdata.api.service.iam.model.http;
 
 import lombok.*;
 
@@ -12,18 +12,17 @@ import javax.xml.bind.annotation.XmlElement;
 @Builder
 @AllArgsConstructor
 @XmlAccessorType(value = XmlAccessType.FIELD)
-public class ListAccessKeysResult {
+public class Member {
 
     @XmlElement(name = "UserName")
     private String userName;
 
-    @XmlElement(name = "AccessKeyMetadata")
-    private AccessKeyMetadata accessKeyMetadata;
+    @XmlElement(name = "AccessKeyId")
+    private String accessKeyId;
 
-    @XmlElement(name = "IsTruncated")
-    private Boolean isTruncated;
+    @XmlElement(name = "Status")
+    private String status;
 
-    @XmlElement(name = "Maker")
-    private String maker;
-
+    @XmlElement(name = "CreateDate")
+    private java.util.Date createDate;
 }

@@ -1,7 +1,7 @@
 package com.datadynamics.bigdata.api.service.iam.commands;
 
 import com.amazonaws.services.identitymanagement.model.StatusType;
-import com.datadynamics.bigdata.api.service.iam.model.*;
+import com.datadynamics.bigdata.api.service.iam.model.http.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 

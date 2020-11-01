@@ -6,4 +6,4 @@
  * 내부 협의를 거쳐 Jackson의 XML Binding 기능을 이용하고자 한다면
  * JAXB 대신 Jackson으로 사용해도 무방하다.
  */
-package com.datadynamics.bigdata.api.service.iam.model;
+package com.datadynamics.bigdata.api.service.iam.model.http;

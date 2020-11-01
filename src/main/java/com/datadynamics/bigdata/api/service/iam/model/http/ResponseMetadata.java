@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.service.iam.model;
+package com.datadynamics.bigdata.api.service.iam.model.http;
 
 import lombok.*;
 
