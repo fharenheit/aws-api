@@ -17,7 +17,8 @@
 * AWS 리소스에 대한 액세스를 안전하게 제어할 수 있는 웹 서비스
 * IAM의 주요 기능은 인증과 권한 관리
 * 처음 생성하는 계정은 모든 리소스에 완전한 접근이 가능한 SSO ID로 시작(ROOT 사용자)
-* 루트 사용자의 이메일 주소와 암호로 로그인
+  * 루트 사용자의 이메일 주소와 암호로 로그인하나 이 프로젝트에서는 의미가 없음
+* 각 리소스(S3, Dynamo 등)에 대한 권한 관리
 
 ### S3
 
@@ -33,9 +34,8 @@
 
 ### Dynamo
 
-* 
-
-
+* Key-Value DB (HashMap이나 Cache와 같다고 보면 됨)
+* Key-Value로 데이터 구조가 되어 있어서 Key를 알면 Value를 쉽게 가져올 수 있으나 BETWEEN 조회에 매우 취약(Key를 정확하게 모르기 때문)
 
 ## 설계시 고려사항
 
@@ -48,6 +48,24 @@
     * JAXB 자바 표준을 사용하거나(JAXB Annotation을 Model Class에 추가)
 * 각 AWS 서비스의 HTTP Request/Response 형식은 AWS 사이트에 API Reference에 모두 나와 있음 --> 별도 설계가 필요하기 보다는 산출물만 만들면 된다는 것을 의미
 * 원래 AWS 서비스는 HTTPS를 사용하며, 만약 HTTPS 통신이 요구사항이라면 Spring Boot의 Tomcat에 HTTPS를 구성하지 않고 Tomcat의 앞쪽에 웹 서버에서 HTTPS를 두어 개발의 영향을 최소화 해야함
+
+### IAM
+
+* 백엔드가 없음 (DB 기반으로 구현해야 함)
+  * 사용자 및 그룹 정보가 LDAP 이나 AD(Active Directory)와 연계를 해야하는지 확인 필요
+    * LDAP 연계시 Spring LDAP으로 구현하면 쉽게 구현이 가능함
+  * 사용자 정보를 독립적으로 구축하는 경우, 부서와 임직원 정보를 DB에 주기적으로 넣는 Batch 프로그램을 작성해야 함
+* 사용자별 Access Key를 AWS에서는 여러 개를 만들 수 있지만 고객사의 경우 1인당 1개만 사용해도 무방한 수준이므로 협의 필요함+
+  * 이 경우 Usenname이 Access Key가 될 수 있음
+  * Username이 Email의 @ 앞을 사용하는 것인지 별도 SSO ID 체계가 있는 것인지 확인이 필요함
+* 사용자 중에서 IS ADMIN이 TRUE 경우에만 사용자를 추가할 수 있도록 해야 함
+* AWS의 SECRET KEY가 자동 생성되므로 여기에서도 Credential 클래스의 Secret Key를 랜덤하게 만들 수 있는 법을 설계 해야함
+  * Username을 특정한 Seed를 줘서 인코딩 후 Base64로 변환하는 방법 등과 같은 방식
+* 복잡한 Role이 필요한지 확인
+  * Admin, User만 필요하다면 User의 admin 속성의 True False만 가지고 충분히 해결 --> AWS IAM API 구현이 간단
+  * 부서별로 권한을 관리할지 여부를 결정해야 함 (이것 들어가면 복잡해짐)
+    * 부서별로 권한을 별도로 관리하는 것이 아니라면 부서정보는 되도록 관리하지 않는 방향으로 가야 함
+* AWS API에 기능이 많지만 필요한 것만 구현하도록 함
 
 ### S3
 
@@ -128,131 +146,48 @@ public static Bucket createBucket(String bucket_name) {
 }
 ```
 
-### 개요
+### Dynamo
 
+* 백엔드는 Postgres, Oracle DB
+* AWS SDK Dynamo API를 Client가 호출하면 HTTP Body에 SQL에 필요한 Parameter가 전달되고 서버는 이 정보로 SQL을 만들어서 Query를 실행하고 결과를 되돌려 줌
+* 전체 서비스 중에서 가장 기능이 없음
+* 사용자가 <Schema>.<Table>의 데이터를 SELECT 하는 경우 Postgres와 Oracle DB중 어디에 있는지 정보를 관리할 수 있도록 해야 함
+  * IAM의 스키마 및 테이블 관리에서 속성 컬럼을 하나 두어 처리하면 됨
+* 백엔드가 DB이므로 테이블을 생성하는 권한은 DB 관리자에게 있으므로 API로 구현해야 하는 것은 SELECT 같은 것만 구현함
 
+다음은 AWS SDK Dynamo API로 테이블을 목록을 가져오는 예제임.
 
-### 주요 기능
+```java
+final AmazonDynamoDB ddb = AmazonDynamoDBClientBuilder.defaultClient();
 
-AWS 계정에 대한 공유 액세스
-세분화된 권한
-많은 AWS 서비스와의 통합
+try {
+    TableDescription table_info = ddb.describeTable(table_name).getTable();
 
-### API
+    if (table_info != null) {
+        System.out.format("Table name  : %s\n", table_info.getTableName());
+        System.out.format("Table ARN   : %s\n", table_info.getTableArn());
+        System.out.format("Status      : %s\n", table_info.getTableStatus());
+        System.out.format("Item count  : %d\n", table_info.getItemCount().longValue());
+        System.out.format("Size (bytes): %d\n", table_info.getTableSizeBytes().longValue());
 
-#### DynamoDB Query
+        ProvisionedThroughputDescription throughput_info = table_info.getProvisionedThroughput();
+        System.out.println("Throughput");
+        System.out.format("  Read Capacity : %d\n", throughput_info.getReadCapacityUnits().longValue());
+        System.out.format("  Write Capacity: %d\n", throughput_info.getWriteCapacityUnits().longValue());
 
-```javascript
-{
-  "ConsumedCapacity": {
-    "CapacityUnits": 1,
-    "GlobalSecondaryIndexes": {
-      "string": {
-        "CapacityUnits": 1,
-        "ReadCapacityUnits": 1,
-        "WriteCapacityUnits": 1
-      }
-    },
-    "LocalSecondaryIndexes": {
-      "string": {
-        "CapacityUnits": 1,
-        "ReadCapacityUnits": 1,
-        "WriteCapacityUnits": 1
-      }
-    },
-    "ReadCapacityUnits": 1,
-    "Table": {
-      "CapacityUnits": 1,
-      "ReadCapacityUnits": 1,
-      "WriteCapacityUnits": 1
-    },
-    "TableName": "string",
-    "WriteCapacityUnits": 1
-  },
-  "Count": 1,
-  "Items": [
-    {
-      "string": {
-        "B": "blob",
-        "BOOL": true,
-        "BS": [
-          "blob"
-        ],
-        "L": [
-          "AttributeValue"
-        ],
-        "M": {
-          "string": "AttributeValue"
-        },
-        "N": "string",
-        "NS": [
-          "string"
-        ],
-        "NULL": true,
-        "S": "string",
-        "SS": [
-          "string"
-        ]
-      }
+        List<AttributeDefinition> attributes = table_info.getAttributeDefinitions();
+        System.out.println("Attributes");
+        for (AttributeDefinition a : attributes) {
+            System.out.format("  %s (%s)\n", a.getAttributeName(), a.getAttributeType());
+        }
     }
-  ],
-  "LastEvaluatedKey": {
-    "string": {
-      "B": "blob",
-      "BOOL": true,
-      "BS": [
-        "blob"
-      ],
-      "L": [
-        "AttributeValue"
-      ],
-      "M": {
-        "string": "AttributeValue"
-      },
-      "N": "string",
-      "NS": [
-        "string"
-      ],
-      "NULL": true,
-      "S": "string",
-      "SS": [
-        "string"
-      ]
-    }
-  },
-  "ScannedCount": 1
+} catch (AmazonServiceException e) {
+    System.err.println(e.getErrorMessage());
+    System.exit(1);
 }
 ```
 
-#### IAM ListAccessKey
-
-```xml
-<ListAccessKeysResponse xmlns="https://iam.amazonaws.com/doc/2010-05-08/">
-  <ListAccessKeysResult>
-    <UserName>Bob</UserName>
-    <AccessKeyMetadata>
-       <member>
-          <UserName>Bob</UserName>
-          <AccessKeyId>AKIA1234567890EXAMPLE</AccessKeyId>
-          <Status>Active</Status> 
-	   <CreateDate>2016-12-03T18:53:41Z</CreateDate>
-       </member>
-       <member>
-          <UserName>Susan</UserName>
-          <AccessKeyId>AKIA2345678901EXAMPLE</AccessKeyId>
-          <Status>Inactive</Status>
-	   <CreateDate>2017-03-25T20:38:14Z</CreateDate>
-       </member>
-    </AccessKeyMetadata>
-    <IsTruncated>false</IsTruncated>
-  </ListAccessKeysResult>
-  <ResponseMetadata>
-    <RequestId>7a62c49f-347e-4fc4-9331-6e8eEXAMPLE</RequestId>
-  </ResponseMetadata>
-</ListAccessKeysResponse>
-```
-
-### 참고
+## 참고
 
 API 가이드는 https://docs.aws.amazon.com/IAM/latest/APIReference/welcome.html을 참고
 
