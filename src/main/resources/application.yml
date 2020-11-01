@@ -86,8 +86,10 @@ app:
   s3:
     namenode: hdfs://192.168.1.1:8020
     hdfs-configuration-path:
-      core-site: classpath:/core-site.xml
-      hdfs-site: classpath:/hdfs-site.xml
+      core-site: classpath:/hdfs/core-site.xml
+      hdfs-site: classpath:/hdfs/hdfs-site.xml
+    bucket-mapping:
+      master: ${namenode}/DataLake/master
 
 #################
 ## Logging

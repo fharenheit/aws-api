@@ -12,14 +12,21 @@
 
 ## 각 서비스 개요
 
+### IAM
+
+* AWS 리소스에 대한 액세스를 안전하게 제어할 수 있는 웹 서비스
+* IAM의 주요 기능은 인증과 권한 관리
+* 처음 생성하는 계정은 모든 리소스에 완전한 접근이 가능한 SSO ID로 시작(ROOT 사용자)
+* 루트 사용자의 이메일 주소와 암호로 로그인
+
 ### S3
 
 * AWS의 Object Storage 서비스(S3; Simple Storage Service)
 * S3는 파일(오브젝트)을 저장하기 위한 저장소 서비스로서 상대적으로 가격이 싼 파일 시스템임
 * Windows, Linux 등의 파일 시스템은 Random Access가 가능하지만 S3는 Random Access를 지원하지 않으므로 파일 시스템이 매우 단순함
 * / 기준으로 최상위 폴더를 Bucket이라고 부르며 그 아래에는 디렉토리 및 파일들이 존재
-** 예) master bucket --> /master
-** 예) /master/2020-01-01/master-20200101.csv
+  * 예) master bucket --> /master
+  * 예) /master/2020-01-01/master-20200101.csv
 * AWS SDK S3 API를 활용하여 Bucket 및 Object를 관리할 수 있음
 * AWS IAM 서비스를 통해서 버킷 및 오브젝트에 대한 권한을 관리함
 * Java로 작성된 AWS SDK API 예제는 https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/java/example_code/s3/src/main/java/aws/example/s3을 참고하도록 함
@@ -28,19 +35,19 @@
 
 * 
 
-### IAM
-
-* AWS 리소스에 대한 액세스를 안전하게 제어할 수 있는 웹 서비스
-* IAM의 주요 기능은 인증과 권한 관리
-* 처음 생성하는 계정은 모든 리소스에 완전한 접근이 가능한 SSO ID로 시작(ROOT 사용자)
-* 루트 사용자의 이메일 주소와 암호로 로그인
-
-### Glue
-
-### Athena
 
 
 ## 설계시 고려사항
+
+### 공통
+
+* AWS의 각 서비스 마다 HTTP Body에 들어가는 포맷이 일관적이지 않음 (어떤 것은 XML로 주고 받고, 어떤 것은 JSON으로 주고 받음)
+  * JSON인 경우 : Spring Boot에서 기본 사용하는 Jackson을 그대로 사용(Accept: application/json시 기본 동작)
+  * XML인 경우
+    * Spring Boot에서 기본 사용하는 Jackson의 XML Binding을 사용하거나
+    * JAXB 자바 표준을 사용하거나(JAXB Annotation을 Model Class에 추가)
+* 각 AWS 서비스의 HTTP Request/Response 형식은 AWS 사이트에 API Reference에 모두 나와 있음 --> 별도 설계가 필요하기 보다는 산출물만 만들면 된다는 것을 의미
+* 원래 AWS 서비스는 HTTPS를 사용하며, 만약 HTTPS 통신이 요구사항이라면 Spring Boot의 Tomcat에 HTTPS를 구성하지 않고 Tomcat의 앞쪽에 웹 서버에서 HTTPS를 두어 개발의 영향을 최소화 해야함
 
 ### S3
 
@@ -68,7 +75,7 @@ import org.slf4j.LoggerFactory;
  
 public class SimpleFileSystemTest {
 
-    private static final String CONFIG_PATH = "core-site.xml";
+    private static final String CONFIG_PATH = "hdfs/core-site.xml";
     private static final String FILE_PATH = "README.txt";
     
     private final Logger logger = LoggerFactory.getLogger(SimpleFileSytemTest.class);

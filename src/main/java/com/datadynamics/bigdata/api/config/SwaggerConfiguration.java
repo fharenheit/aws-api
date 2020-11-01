@@ -8,6 +8,9 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Swagger를 초기화하며, 필요없는 경우 Maven에서 Dependency를 제거하고 이 클래스를 삭제하도록 함.
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {

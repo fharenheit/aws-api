@@ -6,6 +6,5 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @Builder
-@AllArgsConstructor
 public class LastEvaluatedKey {
 }

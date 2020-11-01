@@ -15,7 +15,7 @@ import java.util.Map;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
-@RequestMapping("/dynamo")
+@RequestMapping("/s3")
 public class S3FrontController {
 
     @Autowired
