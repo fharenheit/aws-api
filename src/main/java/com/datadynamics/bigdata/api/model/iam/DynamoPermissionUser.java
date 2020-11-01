@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.model;
+package com.datadynamics.bigdata.api.model.iam;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -13,9 +13,9 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_iam_permission_user")
+@Entity(name = "api_iam_s3_permission_user")
 
-public class PermissionUser {
+public class DynamoPermissionUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,15 +23,6 @@ public class PermissionUser {
 
     @Column(name = "username", columnDefinition = "VARCHAR(100)", nullable = false, unique = true)
     String username;
-
-    @Column(name = "object_read")
-    boolean objectRead;
-
-    @Column(name = "object_execute")
-    boolean objectExecute;
-
-    @Column(name = "object_write")
-    boolean objectWrite;
 
     @Column(name = "sql_select")
     boolean select;

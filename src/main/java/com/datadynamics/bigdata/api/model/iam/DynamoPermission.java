@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.model;
+package com.datadynamics.bigdata.api.model.iam;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;

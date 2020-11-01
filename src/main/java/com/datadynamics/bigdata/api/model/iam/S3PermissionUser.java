@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.model;
+package com.datadynamics.bigdata.api.model.iam;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -7,43 +7,31 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_iam_s3_permission")
-public class S3Permission {
+@Entity(name = "api_iam_permission_user")
+
+public class S3PermissionUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    /**
-     * 그룹 목록
-     */
-    @Transient
-    List<Group> groups;
+    @Column(name = "username", columnDefinition = "VARCHAR(100)", nullable = false, unique = true)
+    String username;
 
-    /**
-     * 사용자 목록
-     */
-    @Transient
-    List<User> users;
+    @Column(name = "object_read")
+    boolean objectRead;
 
-    /**
-     * 버킷명
-     */
-    @Column(name = "bucket_name")
-    String bucketName;
+    @Column(name = "object_execute")
+    boolean objectExecute;
 
-    /**
-     * 상세 설명
-     */
-    @Column(name = "description")
-    String description;
+    @Column(name = "object_write")
+    boolean objectWrite;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)

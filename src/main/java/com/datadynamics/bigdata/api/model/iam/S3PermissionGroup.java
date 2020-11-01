@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.model;
+package com.datadynamics.bigdata.api.model.iam;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -13,8 +13,8 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_iam_permission_group")
-public class PermissionGroup {
+@Entity(name = "api_iam_s3_permission_group")
+public class S3PermissionGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,18 +31,6 @@ public class PermissionGroup {
 
     @Column(name = "object_write")
     boolean objectWrite;
-
-    @Column(name = "sql_select")
-    boolean select;
-
-    @Column(name = "sql_update")
-    boolean update;
-
-    @Column(name = "sql_drop")
-    boolean drop;
-
-    @Column(name = "sql_create")
-    boolean create;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)

@@ -1,5 +1,6 @@
-package com.datadynamics.bigdata.api.model;
+package com.datadynamics.bigdata.api.model.iam;
 
+import com.datadynamics.bigdata.api.model.BaseEnumCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
