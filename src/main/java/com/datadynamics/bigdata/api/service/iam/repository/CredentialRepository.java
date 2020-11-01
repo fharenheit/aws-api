@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.repository.iam;
+package com.datadynamics.bigdata.api.service.iam.repository;
 
 import com.datadynamics.bigdata.api.model.iam.Credential;
 import org.springframework.data.repository.CrudRepository;
