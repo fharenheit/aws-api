@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.service.dynamo.model;
+package com.datadynamics.bigdata.api.service.dynamo.model.http;
 
 import lombok.*;
 
