@@ -80,6 +80,9 @@
 * S3의 버킷은 hdfs://NAMENODE_SERVER:8020/.../ 어딘가로 매핑하도록 하고, 그 이하에 있는 디렉토리 및 폴더는 S3 Object로 생각하면 됨
 * Hadoop Cluster가 구성되면 Hadoop 관리자에게 `core-site.xml`, `hdfs-site.xml` 파일을 달라고 요청해야 함 --> Hadoop API를 쓰려면 이 파일이 있어야 함
 * IAM에서는 Bucket에 대해서만 권한을 관리할지, 이 이하 모든 파일에 대해서 권한을 관리할지 결정을 해야함 --> Bucket에 대해서만 권한을 관리하는 것을 추천함
+* Hadoop Cluster 구축이 완료되면 Hadoop 버전 확인해서 Maven Dependency로 추가 해야함
+  * Hadoop은 Jetty 서버를 내장하고 있어서 Dependency로 추가하는 경우 Spring Boot의 Tomcat과 충돌발생 (Serlvet API 버전 차이로)
+  * Serlvet API를 포함한 Jetty JAR 파일도 모두 <exclude> 시켜야 함
 
 다음은 Hadoop HDFS API로 작성한 디렉토리 생성하는 간단한 예제임
 
