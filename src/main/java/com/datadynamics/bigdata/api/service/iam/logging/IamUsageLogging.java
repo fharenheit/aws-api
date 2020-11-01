@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.service.s3.logging;
+package com.datadynamics.bigdata.api.service.iam.logging;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
@@ -13,8 +13,8 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_s3_usage_logging")
-public class S3UsageLogging {
+@Entity(name = "api_iam_usage_logging")
+public class IamUsageLogging {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,23 +24,23 @@ public class S3UsageLogging {
     String username;
 
     /**
-     * 버킷명
+     * 서비스 코드
      */
-    @Column(name = "bucket_name", nullable = false)
-    String bucketName;
-
-    /**
-     * 경로
-     */
-    @Column(name = "path", columnDefinition = "VARCHAR(255)")
-    String path;
+    @Column(name = "service_code", columnDefinition = "VARCHAR(100)", nullable = false)
+    String serviceCode;
 
     /**
      * 이 테이블이 Oracle인지 Greenplum에 있는 테이블인지를 식별하기 위한 코드.
      */
     @Column(name = "access_type", columnDefinition = "VARCHAR(20)", nullable = false)
     @Enumerated(EnumType.STRING)
-    S3AccessTypeEnum accessType;
+    IamAccessTypeEnum accessType;
+
+    /**
+     * 처리한 값
+     */
+    @Column(name = "value", columnDefinition = "VARCHAR(255)", nullable = false)
+    String value;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)

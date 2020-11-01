@@ -12,10 +12,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum S3AccessTypeEnum implements BaseEnumCode<String> {
 
-    CREATE("Create"),
-    DELETE("Delete"),
-    READ("Read"),
-    UPDATE("Update");
+    CREATE("CREATE"),
+    DELETE("DELETE"),
+    READ("READ"),
+    UPDATE("UPDATE");
 
     private final String value;
 

@@ -12,14 +12,14 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum DynamoAccessTypeEnum implements BaseEnumCode<String> {
 
-    CREATE("Create"),
-    DELETE("Delete"),
-    LIST("List"),
-    GET("Get"),
-    DESCRIBE("Describe"),
-    QUERY("Query"),
-    SCAN("Scan"),
-    UPDATE("Update");
+    CREATE("CREATE"),
+    DELETE("DELETE"),
+    LIST("LIST"),
+    GET("GET"),
+    DESCRIBE("DESCRIBE"),
+    QUERY("QUERY"),
+    SCAN("SCAN"),
+    UPDATE("UPDATE");
 
     private final String value;
 

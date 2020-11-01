@@ -46,9 +46,9 @@ public class DynamoUsageLogging {
     /**
      * 이 테이블이 Oracle인지 Greenplum에 있는 테이블인지를 식별하기 위한 코드.
      */
-    @Column(name = "access_type", columnDefinition = "VARCHAR(20)", nullable = true)
+    @Column(name = "access_type", columnDefinition = "VARCHAR(20)", nullable = false)
     @Enumerated(EnumType.STRING)
-    DynamoAccessTypeEnum dynamoAccessTypeEnum;
+    DynamoAccessTypeEnum accessType;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)
