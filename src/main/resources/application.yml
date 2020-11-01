@@ -59,6 +59,35 @@ server:
 
 app:
   region-name: korea
+  dynamo:
+    datasource:
+      oracle:
+        url: jdbc:log4jdbc:oracle:thin:@localhost:1521:xe
+        username: scott
+        password: tiger
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        connection-test-query: SELECT 1
+        maximum-pool-size: 10
+        minimum-idle: 3
+        sql-script-encoding: UTF-8
+        continue-on-error: true
+        initialization-mode: always
+      greenplum:
+        url: jdbc:log4jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+        username: root
+        password: root
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        connection-test-query: SELECT 1
+        maximum-pool-size: 10
+        minimum-idle: 3
+        sql-script-encoding: UTF-8
+        continue-on-error: true
+        initialization-mode: always
+  s3:
+    namenode: hdfs://192.168.1.1:8020
+    hdfs-configuration-path:
+      core-site: classpath:/core-site.xml
+      hdfs-site: classpath:/hdfs-site.xml
 
 #################
 ## Logging

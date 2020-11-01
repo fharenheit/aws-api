@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.repository;
+package com.datadynamics.bigdata.api.repository.iam;
 
 import com.datadynamics.bigdata.api.model.User;
 import org.springframework.data.repository.CrudRepository;

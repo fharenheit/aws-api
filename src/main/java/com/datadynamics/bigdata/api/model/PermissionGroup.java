@@ -23,7 +23,6 @@ public class PermissionGroup {
     @Column(name = "group_code", columnDefinition = "VARCHAR(100)", nullable = false)
     String groupCode;
 
-
     @Column(name = "object_read")
     boolean objectRead;
 
@@ -45,11 +44,17 @@ public class PermissionGroup {
     @Column(name = "sql_create")
     boolean create;
 
+    /**
+     * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)
+     */
     @CreationTimestamp
     @Column(name = "create_ts", insertable = false, updatable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp createTime;
 
+    /**
+     * 변경일 (이 필드에는 값을 입력하지 않아도 Hibernate가 UPDATE시 자동으로 기록)
+     */
     @UpdateTimestamp
     @Column(name = "update_ts", insertable = false, updatable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")

@@ -5,43 +5,58 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "api_iam_service")
-public class Service {
+@Entity(name = "api_iam_dynamo_permission")
+public class DynamoPermission {
 
-    /**
-     * 서비스를 식별하기 위한 서비스 코드 (예; DYNAMODB)
-     */
     @Id
-    @Column(name = "service_code", columnDefinition = "VARCHAR(100)")
-    String serviceCode;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
     /**
-     * 서비스 명칭 (예; DynamoDB)
+     * 그룹 목록
      */
-    @Column(name = "service_name", columnDefinition = "VARCHAR(10)", nullable = false)
-    String serviceName;
+    @Transient
+    List<Group> groups;
 
     /**
-     * 서비스의 세부 설명
+     * 사용자 목록
      */
-    @Column(name = "description", columnDefinition = "VARCHAR(255)", nullable = true)
+    @Transient
+    List<User> users;
+
+    /**
+     * 스키마명
+     */
+    @Column(name = "schema_name")
+    String schemaName;
+
+    /**
+     * 테이블명
+     */
+    @Column(name = "table_name")
+    String tableName;
+
+    /**
+     * 상세 설명
+     */
+    @Column(name = "description")
     String description;
 
     /**
-     * 서비스의 Endpoint 주소(예; http://192.168.1.1:8080/s3)
+     * 이 테이블이 Oracle인지 Greenplum에 있는 테이블인지를 식별하기 위한 코드.
      */
-    @Column(name = "endpoint", columnDefinition = "VARCHAR(255)", nullable = true)
-    String endpoint;
+    @Column(name = "data_source_type", columnDefinition = "VARCHAR(20)", nullable = true)
+    @Enumerated(EnumType.STRING)
+    DataSourceTypeEnum dataSourceType;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)
