@@ -10,7 +10,7 @@ public interface S3RequestCommand {
 
     String getHttpMethod();
 
-    String getUri();
+    String[] getUri();
 
     ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response);
 

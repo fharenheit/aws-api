@@ -14,8 +14,8 @@ public class CreateBucketS3RequestCommand implements S3RequestCommand {
     }
 
     @Override
-    public String getUri() {
-        return "/";
+    public String[] getUri() {
+        return new String[]{"/"};
     }
 
     @Override

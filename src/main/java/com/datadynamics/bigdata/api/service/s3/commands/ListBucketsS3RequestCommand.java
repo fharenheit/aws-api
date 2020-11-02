@@ -28,8 +28,8 @@ public class ListBucketsS3RequestCommand implements S3RequestCommand, Applicatio
     }
 
     @Override
-    public String getUri() {
-        return "/";
+    public String[] getUri() {
+        return new String[]{"/", ""};
     }
 
     @Override

@@ -57,9 +57,12 @@ public class S3RequestDispatcher implements InitializingBean, ApplicationContext
         // Spring이 초기화 되면 Command Key와 Command Impl의 매핑 정보를 생성한다.
         this.commandMap = new HashMap<>();
         this.commands.forEach(command -> {
-            String commandKey = command.getHttpMethod() + "_" + command.getUri();
-            log.debug("S3 Command를 추가합니다 : {} --> {}", commandKey, command.getClass().getName());
-            commandMap.put(commandKey, command);
+            String[] uris = command.getUri(); // BOTO의 경우 /s3를 넣는 경우 URI가 NULL이 나와서 경우의 수를 모두 지정해야 한다.
+            for (String uri : uris) {
+                String commandKey = command.getHttpMethod() + "_" + uri;
+                log.debug("S3 Command를 추가합니다 : {} --> {}", commandKey, command.getClass().getName());
+                commandMap.put(commandKey, command);
+            }
         });
     }
 
