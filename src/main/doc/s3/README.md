@@ -137,3 +137,8 @@ clientConfiguration.setMaxErrorRetry(0); // 0로 하지 않으면 여러번 호�
 builder.setClientConfiguration(clientConfiguration);
 AmazonS3 s3 = builder.build();
 ```
+
+### List Buckets의 경우 SDK에 따라서 호출 URI가 다소 차이가 있습니다.
+
+* AWS SDK Java의 경우 endpoint를 /s3로 지정하는 /s3/로 호출합니다.
+* BOTO3의 경우 /s3로 지정하는 경우 /s3로 호출합니다.
