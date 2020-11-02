@@ -132,6 +132,14 @@
         </dependency>
 
         <dependency>
+            <groupId>greenplum</groupId>
+            <artifactId>jdbc</artifactId>
+            <version>5.1.4.000275</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/lib/PROGRESS_DATADIRECT_JDBC_DRIVER_PIVOTAL_GREENPLUM_5.1.4.000275.jar</systemPath>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
