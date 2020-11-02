@@ -59,6 +59,10 @@ server:
 
 app:
   region-name: korea
+  service-context-paths:
+    s3: /s3
+    iam: /iam
+    dynamo: /dynamo
   dynamo:
     datasource:
       oracle:

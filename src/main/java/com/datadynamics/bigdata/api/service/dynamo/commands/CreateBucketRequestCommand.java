@@ -8,13 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 public class CreateBucketRequestCommand implements S3RequestCommand {
+
     @Override
-    public String getName() {
-        return "CreateBucket";
+    public String getHttpMethod() {
+        return "POST";
     }
 
     @Override
-    public ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response, String body) {
+    public String getUri() {
+        return "/";
+    }
+
+    @Override
+    public ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response) {
         return null;
     }
 }

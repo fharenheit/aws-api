@@ -8,8 +8,10 @@ import java.util.Map;
 
 public interface S3RequestCommand {
 
-    String getName();
+    String getHttpMethod();
 
-    ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response, String body);
+    String getUri();
+
+    ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response);
 
 }

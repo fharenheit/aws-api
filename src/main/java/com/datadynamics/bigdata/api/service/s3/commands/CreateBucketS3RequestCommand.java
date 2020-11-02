@@ -9,12 +9,17 @@ import java.util.Map;
 public class CreateBucketS3RequestCommand implements S3RequestCommand {
 
     @Override
-    public String getName() {
-        return "CreateBucket";
+    public String getHttpMethod() {
+        return "POST";
     }
 
     @Override
-    public ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response, String body) {
+    public String getUri() {
+        return "/";
+    }
+
+    @Override
+    public ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response) {
         return ResponseEntity.badRequest().body("지원하지 않는 기능입니다.");
     }
 }
