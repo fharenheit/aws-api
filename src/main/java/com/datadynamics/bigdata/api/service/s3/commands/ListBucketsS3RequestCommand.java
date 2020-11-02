@@ -37,6 +37,8 @@ public class ListBucketsS3RequestCommand implements S3RequestCommand, Applicatio
         response.setContentType("application/xml");
         response.setHeader("x-amzn-RequestId", request.getHeader("amz-sdk-invocation-id"));
 
+        // 외부에 노출이 가능하고, 공용 버킷을 모두 조회한다.
+        // 요건에 따라서 조회 조건이 변경될 수 있다.
         List<Bucket> byBuckets = repository.findBucketsBySharedAndExposed();
         if (byBuckets == null || byBuckets.size() < 1) {
             return ResponseEntity.ok(new ListAllMyBucketsResult());
