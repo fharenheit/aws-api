@@ -17,7 +17,8 @@ GET / HTTP/1.1
 
 ## Response 정리
 
-요청에 대한 응답은 다음과 같으며 Location을 회신해야 합니다.
+* Owner는 어떤 Owner인가?
+* 어떤 Owner의 버킷 목록을 제공해야 하나?
 
 ```
 HTTP/1.1 200
