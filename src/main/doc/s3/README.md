@@ -104,13 +104,14 @@
 
 S3 Compatible API가 동작하기 위해서는 최소로 다음의 기능을 먼저 구현해야 합니다.
 
-* CreateBucket
+* CreateBucket (X)
+  * 버킷명을 지정하면 호출 호스트명에 버킷명이 추가되는 이슈
 * DeleteBucket
 * DeleteObject
 * DeleteObjects
 * GetBucketLocation
 * GetObject
-* ListBuckets
+* ListBuckets (O)
 * ListObjects
 * ListObjectsV2
 * PutObject
