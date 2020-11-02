@@ -6,7 +6,7 @@
     <bean id="s3RequestDispatcher" class="com.datadynamics.bigdata.api.service.s3.S3RequestDispatcher">
         <property name="commands">
             <list>
-                <bean class="com.datadynamics.bigdata.api.service.dynamo.commands.CreateBucketRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.s3.commands.CreateBucketS3RequestCommand"/>
             </list>
         </property>
     </bean>
