@@ -47,10 +47,7 @@ Custom Maven Repository를 사용하기 위해서 `<USER_HOME>/.m2/settings.xml`
 [global]
 index = http://nexus.hadoop-professionals.org/repository/pypi-central/pypi
 index-url = http://nexus.hadoop-professionals.org/repository/pypi-central/simple
-trusted-host = pypi.python.org
-                       pypi.org
-                       files.pythonhosted.org
-                       nexus.hadoop-professionals.org
+trusted-host = nexus.hadoop-professionals.org
 ```
 
 #### Linux
@@ -61,8 +58,5 @@ trusted-host = pypi.python.org
 [global]
 index = http://nexus.hadoop-professionals.org/repository/pypi-central/pypi
 index-url = http://nexus.hadoop-professionals.org/repository/pypi-central/simple
-trusted-host = pypi.python.org
-                       pypi.org
-                       files.pythonhosted.org
-                       nexus.hadoop-professionals.org
+trusted-host = nexus.hadoop-professionals.org
 ```
