@@ -6,6 +6,9 @@
 * Anaconda (https://www.anaconda.com/products/individual)
 * Eclipse / IntelliJ IDEA
 * Pycharm
+* Maven 3
+  * Windows : https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip
+  * Linux : https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 
 ## Framework & Library
 
