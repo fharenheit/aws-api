@@ -48,6 +48,7 @@ Pypi Repo를 미러링하기 위해서 다음의 커맨드를 입력합니다. �
 
 ```
 pip3 install python-pypi-mirror
+pypi-mirror download -d downloads requests
 pypi-mirror create -d downloads -m simple
 python3 -m http.server
 pip3 install -i http://127.0.0.1:8000/simple requests
