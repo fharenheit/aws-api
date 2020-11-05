@@ -39,6 +39,17 @@ Custom Maven Repository를 사용하기 위해서 `<USER_HOME>/.m2/settings.xml`
 
 ### Pypi Repository
 
+#### Mirroring
+
+Pypi Repo를 미러링하기 위해서 다음의 커맨드를 입력합니다. 이 작업은 자체적으로 Pypi Repository를 서비스하는 경우에 해당합니다.
+
+```
+pip3 install python-pypi-mirror
+pypi-mirror create -d downloads -m simple
+python3 -m http.server
+pip3 install -i http://127.0.0.1:8000/simple requests
+```
+
 #### Windows
 
 `%APPDATA%\pip\pip.ini` 경로에 Custom Pypi Repository를 설정합니다.
