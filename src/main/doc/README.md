@@ -117,3 +117,15 @@ gpgkey=http://SERVER/epel/RPM-GPG-KEY-EPEL-7
 enabled=1
 gpgcheck=0
 ```
+
+### CRAN Repository
+
+#### Mirroing
+
+```
+ rsync -e "ssh" -rtlzv --delete cran-rsync@cran.r-project.org: /dir/on/local/disc 
+or (potentially insecure):
+ rsync -rtlzv --delete cran.r-project.org::CRAN /dir/on/local/disc 
+ ```
+ 
+ 윈도 환경에서 rsync를 하기 위해서라면 cwRsync(https://itefix.net/dl/free-software/cwrsync_6.2.0_x64_free.zip)를 사용하도록 합니다.
