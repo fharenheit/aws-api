@@ -60,3 +60,49 @@ index = http://nexus.hadoop-professionals.org/repository/pypi-central/pypi
 index-url = http://nexus.hadoop-professionals.org/repository/pypi-central/simple
 trusted-host = nexus.hadoop-professionals.org
 ```
+
+### CentOS 7 EPEL Repo
+
+#### Mirroring
+
+CentOS 7 EPEL Repository를 미러링하기 위해서 CentOS에서 다음의 커맨드를 입력합니다.
+
+```
+rsync -vtr --progress --exclude debug/ rsync://mirror.pnl.gov/epel/7/x86_64/ epel
+```
+
+#### Repository 설정
+
+##### CentOS 7 Repository
+
+```
+mkdir -p /var/www/html/centos
+mount -o loop rhel-server-7.7-x86_64-dvd.iso /var/www/html/centos
+yum install createrepo -y
+cd /var/www/html/centos
+createrepo .
+```
+
+`/etc/yum.repos.d/bigdata-centos7.repo` 파일을 다음과 같이 작성합니다.
+
+```
+[bigdata-centos7]
+name=Big Data CentOS7 YUM Repository
+baseurl=http://SERVER/centos/7/x86_64
+gpgkey=http://SERVER/centos/RPM-GPG-KEY-EPEL-7
+enabled=1
+gpgcheck=0
+```
+
+##### CentOS 7 EPEL Repository
+
+`/etc/yum.repos.d/bigdata-epel.repo` 파일을 다음과 같이 작성합니다.
+
+```
+[bigdata-epel]
+name=Big Data EPEL YUM Repository
+baseurl=http://SERVER/epel/7/x86_64
+gpgkey=http://SERVER/epel/RPM-GPG-KEY-EPEL-7
+enabled=1
+gpgcheck=0
+```
