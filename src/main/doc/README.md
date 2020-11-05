@@ -122,10 +122,11 @@ gpgcheck=0
 
 #### Mirroing
 
+`rsync`로 R CRAN을 미러링하기 위해서 다음의 두 가지중 하나의 커맨드를 입력합니다.
+
 ```
- rsync -e "ssh" -rtlzv --delete cran-rsync@cran.r-project.org: /dir/on/local/disc 
-or (potentially insecure):
- rsync -rtlzv --delete cran.r-project.org::CRAN /dir/on/local/disc 
- ```
- 
+rsync -e "ssh" -rtlzv --delete cran-rsync@cran.r-project.org: /dir/on/local/disc 
+rsync -rtlzv --delete cran.r-project.org::CRAN /dir/on/local/disc 
+```
+
  윈도 환경에서 rsync를 하기 위해서라면 cwRsync(https://itefix.net/dl/free-software/cwrsync_6.2.0_x64_free.zip)를 사용하도록 합니다.
