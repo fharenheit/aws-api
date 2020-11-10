@@ -1,5 +1,7 @@
 package com.datadynamics.bigdata.api.service.s3;
 
+import com.amazonaws.ClientConfiguration;
+import com.amazonaws.Protocol;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
@@ -14,11 +16,17 @@ public class CreateBucketRequestTester {
         BasicAWSCredentials awsCreds = new BasicAWSCredentials("admin", "admin123");
 
         AwsClientBuilder.EndpointConfiguration configuration
-                = new AwsClientBuilder.EndpointConfiguration("http://localhost:8080/s3", "korea");
+                = new AwsClientBuilder.EndpointConfiguration("http://server:8080/s3", "korea");
+
+        ClientConfiguration clientConfiguration = new ClientConfiguration();
+        clientConfiguration.setProxyProtocol(Protocol.HTTP);
+        clientConfiguration.setProxyHost("server");
+        clientConfiguration.setProxyPort(80);
 
         AmazonS3ClientBuilder builder = AmazonS3ClientBuilder.standard();
         builder.setCredentials(new AWSStaticCredentialsProvider(awsCreds));
         builder.setEndpointConfiguration(configuration);
+        builder.setClientConfiguration(clientConfiguration);
         AmazonS3 s3 = builder.build();
 
         CreateBucketRequest request = new CreateBucketRequest("helloworld", "korea");

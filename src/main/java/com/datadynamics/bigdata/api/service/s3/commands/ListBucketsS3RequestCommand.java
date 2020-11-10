@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class ListBucketsS3RequestCommand implements S3RequestCommand, ApplicationContextAware {
+public class ListBucketsS3RequestCommand extends DefaultS3RequestCommand implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 

@@ -89,6 +89,7 @@ app:
         initialization-mode: always
   s3:
     namenode: hdfs://192.168.1.1:8020
+    server-name: server
     hdfs-configuration-path:
       core-site: classpath:/hdfs/core-site.xml
       hdfs-site: classpath:/hdfs/hdfs-site.xml
@@ -115,6 +116,6 @@ logging:
     com.querydsl.sql: INFO
     org.apache: INFO
     com.zaxxer: INFO
-    com.lg: DEBUG
+    com.datadynamics.bigdata: DEBUG
   group:
     tomcat: org.apache.catalina, org.apache.coyote, org.apache.tomcat

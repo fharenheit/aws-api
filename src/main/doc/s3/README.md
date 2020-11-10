@@ -2,7 +2,103 @@
 
 * HDFS를 백엔드로 하는 S3 Compatible API
 * HDFS는 Isilon HDFS
-* 사용자 디렉토리(User Directory) 및 공용 데이터 버킷 지원
+* 사용자의 버킷, 공유 버킷, 모든 사용자가 접근 가능한 버킷을 지원 
+
+## nginx 설정
+
+S3 API는 API 호출시 HTTP Header의 `host`에 실제로 호출하는 서비스를 포함하여 버킷명을 subdomain으로 사용하므로 실제로 존재하지 않는 서버가 호출이 되어 테스트를 할 수 없게 됩니다.
+따라서 이를 위해서 nginx를 설정하도록 합니다.
+
+### nginx 다운로드 및 설치
+
+윈도에서 테스트하는 경우 nginx를 윈도 버전을 다운로드합니다.
+
+### 호스트 파일 설정
+
+S3 API를 서비스하는 서버의 호스트명을 `server`라고 칭하고 다음과 같이 호스트 파일을 변경합니다.
+
+```
+192.168.1.1 server
+```
+
+### nginx 설정
+
+nginx 설정에서는 proxy를 사용합니다. server, *.server로 들어오는 모든 요청을 Java로 구현한 S3 API 서버로 전달되도록 구성합니다.
+
+```
+worker_processes  1;
+
+error_log  logs/error.log;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                    '$status $body_bytes_sent "$http_referer" '
+                    '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  logs/access.log main;
+
+    sendfile        on;
+    keepalive_timeout  65;
+    gzip  on;
+
+    upstream s3_api_servers {
+        least_conn;
+        #server 192.168.0.1:8000 weight=5;
+        #server 192.168.0.1:8001 weight=5;
+        server localhost:8080;
+    }
+
+    server {
+        listen 80;
+        server_name  server *.server;
+        rewrite_log on;
+        location / {
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_redirect off;
+            proxy_pass http://localhost:8080/s3;
+        }
+    }
+}
+```
+
+### AWS SDK의 Proxy 설정
+
+이제 AWS SDK의 Proxy를 다음과 같이 설정합니다.
+
+```java
+// IAM의 Access Key, Secret Key 설정
+BasicAWSCredentials awsCreds = new BasicAWSCredentials("admin", "admin123");
+
+// ENDPOINT 설정
+AwsClientBuilder.EndpointConfiguration configuration
+        = new AwsClientBuilder.EndpointConfiguration("http://server:8080/s3", "korea");
+
+// PROXY 설정 
+ClientConfiguration clientConfiguration = new ClientConfiguration();
+clientConfiguration.setProxyProtocol(Protocol.HTTP);
+clientConfiguration.setProxyHost("server");
+clientConfiguration.setProxyPort(80);
+
+// S3 CLIENT 생성
+AmazonS3ClientBuilder builder = AmazonS3ClientBuilder.standard();
+builder.setCredentials(new AWSStaticCredentialsProvider(awsCreds));
+builder.setEndpointConfiguration(configuration);
+builder.setClientConfiguration(clientConfiguration);
+AmazonS3 s3 = builder.build();
+
+// Bucket 생성을 요청 
+CreateBucketRequest request = new CreateBucketRequest("helloworld", "korea");
+Bucket bucket = s3.createBucket(request);
+```
 
 ## S3 API
 
