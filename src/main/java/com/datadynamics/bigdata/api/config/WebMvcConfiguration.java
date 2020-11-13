@@ -23,6 +23,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         String baseUrl = StringUtils.trimTrailingCharacter(this.baseUrl, '/');
+
+        // Swagger UI를 표시하기 위한 리소스를 설정한다.
         registry.addResourceHandler(baseUrl + "/swagger-ui/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/springfox-swagger-ui/")
                 .resourceChain(false);
@@ -30,6 +32,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        // /로 접근하면 Swagger UI로 리다이렉트한다.
         registry.addRedirectViewController("/", "/swagger-ui/");
     }
 
