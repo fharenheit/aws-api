@@ -236,6 +236,8 @@ S3 API는 XML을 이용하며 S3 API의 XSD 스키마를 제공합니다. 이에
 </plugin>
 ```
 
+API의 Response를 생성할 때에는 각 Response XML의 최상위 태그에 해당하는 클래스를 찾아서 리턴하면 됩니다.
+
 ## 최소 지원 기능
 
 S3 Compatible API가 동작하기 위해서는 최소로 다음의 기능을 먼저 구현해야 합니다.
