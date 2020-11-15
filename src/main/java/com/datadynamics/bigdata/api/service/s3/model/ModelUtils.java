@@ -43,6 +43,7 @@ public class ModelUtils {
     }
 
     public static CanonicalUser owner(String id, String name) {
+        // Owner ID의 의미를 알 수 없으므로 일단 Owner ID를 username 또는 SSO ID를 넣도록 한다.
         CanonicalUser user = new CanonicalUser();
         user.setDisplayName(name);
         user.setID(id);

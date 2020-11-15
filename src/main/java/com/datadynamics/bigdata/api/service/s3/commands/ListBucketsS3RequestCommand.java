@@ -36,6 +36,8 @@ public class ListBucketsS3RequestCommand extends DefaultS3RequestCommand impleme
         response.setContentType("application/xml");
         response.setHeader("x-amzn-RequestId", request.getHeader("amz-sdk-invocation-id"));
 
+        String username = getUsername(request);
+
         // 외부에 노출이 가능하고, 공용 버킷을 모두 조회한다. 요건에 따라서 조회 조건이 변경될 수 있다.
         List<Bucket> byBuckets = repository.findBucketsBySharedAndExposed();
         if (byBuckets == null || byBuckets.size() < 1) {
@@ -45,7 +47,8 @@ public class ListBucketsS3RequestCommand extends DefaultS3RequestCommand impleme
             for (Bucket b : byBuckets) {
                 bucketNames.add(b.getBucketName());
             }
-            ListAllMyBucketsResult listAllMyBucketsResult = ModelUtils.listBuckets("123123", "gildong.hong", bucketNames.toArray(new String[byBuckets.size()]));
+
+            ListAllMyBucketsResult listAllMyBucketsResult = ModelUtils.listBuckets(username, username, bucketNames.toArray(new String[byBuckets.size()]));
             return ResponseEntity.ok(listAllMyBucketsResult);
         }
     }
