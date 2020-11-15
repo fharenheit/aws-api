@@ -2,7 +2,7 @@ package com.datadynamics.bigdata.api.service.s3.commands;
 
 import com.datadynamics.bigdata.api.service.s3.model.Bucket;
 import com.datadynamics.bigdata.api.service.s3.model.ModelUtils;
-import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsResult;
+import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsResponse;
 import com.datadynamics.bigdata.api.service.s3.repository.BucketRepository;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -41,15 +41,14 @@ public class ListBucketsS3RequestCommand extends DefaultS3RequestCommand impleme
         // 외부에 노출이 가능하고, 공용 버킷을 모두 조회한다. 요건에 따라서 조회 조건이 변경될 수 있다.
         List<Bucket> byBuckets = repository.findBucketsBySharedAndExposed();
         if (byBuckets == null || byBuckets.size() < 1) {
-            return ResponseEntity.ok(new ListAllMyBucketsResult());
+            // 버킷이 하나도 없다면 빈 응답을 리턴한다.
+            return ResponseEntity.ok(new ListAllMyBucketsResponse());
         } else {
             List<String> bucketNames = new ArrayList<>();
             for (Bucket b : byBuckets) {
                 bucketNames.add(b.getBucketName());
             }
-
-            ListAllMyBucketsResult listAllMyBucketsResult = ModelUtils.listBuckets(username, username, bucketNames.toArray(new String[byBuckets.size()]));
-            return ResponseEntity.ok(listAllMyBucketsResult);
+            return ResponseEntity.ok(ModelUtils.listBuckets(username, username, bucketNames.toArray(new String[byBuckets.size()])));
         }
     }
 

@@ -1,9 +1,6 @@
 package com.datadynamics.bigdata.api.service.s3.model;
 
-import com.datadynamics.bigdata.api.service.s3.model.http.CanonicalUser;
-import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsEntry;
-import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsList;
-import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsResult;
+import com.datadynamics.bigdata.api.service.s3.model.http.*;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -14,11 +11,14 @@ import java.util.GregorianCalendar;
 
 public class ModelUtils {
 
-    public static ListAllMyBucketsResult listBuckets(String id, String owner, String... buckets) {
+    public static ListAllMyBucketsResponse listBuckets(String id, String owner, String... buckets) {
         ListAllMyBucketsResult result = new ListAllMyBucketsResult();
         result.setBuckets(buckets(buckets));
         result.setOwner(owner(id, owner));
-        return result;
+
+        ListAllMyBucketsResponse response = new ListAllMyBucketsResponse();
+        response.setListAllMyBucketsResponse(result);
+        return response;
     }
 
     public static ListAllMyBucketsList buckets(String... buckets) {
