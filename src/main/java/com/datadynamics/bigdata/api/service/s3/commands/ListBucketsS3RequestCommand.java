@@ -1,8 +1,10 @@
 package com.datadynamics.bigdata.api.service.s3.commands;
 
 import com.datadynamics.bigdata.api.service.s3.model.Bucket;
+import com.datadynamics.bigdata.api.service.s3.model.http.CanonicalUser;
+import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsEntry;
+import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsList;
 import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsResult;
-import com.datadynamics.bigdata.api.service.s3.model.http.Owner;
 import com.datadynamics.bigdata.api.service.s3.repository.BucketRepository;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -53,25 +55,20 @@ public class ListBucketsS3RequestCommand extends DefaultS3RequestCommand impleme
         }
     }
 
-    com.datadynamics.bigdata.api.service.s3.model.http.Bucket createBucket(String name, Timestamp createTime) {
-        com.datadynamics.bigdata.api.service.s3.model.http.Bucket bucket = new com.datadynamics.bigdata.api.service.s3.model.http.Bucket();
-        bucket.setName(name);
-        bucket.setCreationDate(createTime);
-        return bucket;
-    }
-
-    ListAllMyBucketsResult createListAllMyBucketsResult(List<com.datadynamics.bigdata.api.service.s3.model.http.Bucket> buckets, Owner owner) {
+    ListAllMyBucketsResult createListAllMyBucketsResult(\) {
         ListAllMyBucketsResult result = new ListAllMyBucketsResult();
+        ListAllMyBucketsList buckets = new ListAllMyBucketsList();
+        ListAllMyBucketsEntry bucket = new ListAllMyBucketsEntry();
+        bucket.setName();
+        bucket.setCreationDate();
+        buckets.getBucket().add(bucket);
         result.setBuckets(buckets);
+
+        CanonicalUser owner = new CanonicalUser();
+        owner.setDisplayName("");
+        owner.setID("");
         result.setOwner(owner);
         return result;
-    }
-
-    Owner createOwner(String displayName, String id) {
-        Owner owner = new Owner();
-        owner.setDisplayName(displayName);
-        owner.setId(id);
-        return owner;
     }
 
     @Override
