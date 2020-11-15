@@ -210,6 +210,32 @@ Bucket bucket = s3.createBucket(request);
 * UploadPart
 * UploadPartCopy
 
+## Request & Response Model
+
+S3 API는 XML을 이용하며 S3 API의 XSD 스키마를 제공합니다. 이에 따라서 XSD 스키마로 Request 및 Response의 Model 클래스를 JAXB xjc로 생성할 수 있습니다. 이를 위해서 다음과 같이 Maven Plugin을 사용하도록합니다.
+
+```xml
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>jaxb2-maven-plugin</artifactId>
+    <version>2.5.0</version>
+    <executions>
+        <execution>
+            <id>xjc</id>
+            <goals>
+                <goal>xjc</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <packageName>com.datadynamics.bigdata.api.service.s3.model.http</packageName>
+        <sources>
+            <source>src/main/resources/xsd/s3.xsd</source>
+        </sources>
+    </configuration>
+</plugin>
+```
+
 ## 최소 지원 기능
 
 S3 Compatible API가 동작하기 위해서는 최소로 다음의 기능을 먼저 구현해야 합니다.

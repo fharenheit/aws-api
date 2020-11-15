@@ -65,8 +65,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!-- The package of your generated sources -->
-                    <packageName>com.example.myschema</packageName>
+                    <packageName>com.datadynamics.bigdata.api.service.s3.model.http</packageName>
                     <sources>
                         <source>src/main/resources/xsd/s3.xsd</source>
                     </sources>

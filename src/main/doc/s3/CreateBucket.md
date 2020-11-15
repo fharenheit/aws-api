@@ -50,7 +50,8 @@ Connection: close
 Server: AmazonS3
 ```
 
-## 이슈
+## 논의 대상
 
-* 버킷 생성을 요청하면 bucket.hostname:port로 요청이 발생하므로 앞단에 웹서버가 호스트명을 해석해서 처리할 수 없으므로 무조건 S3 API 서비스로 요청이 들어가도록 처리해야 합니다.
-  * helloworld 버킷 ---> http://helloworld.localhost:8080
+* 사용자당 1개의 버킷이 있는데 버킷을 생성하면 어떤 버킷을 생성하는 것인지?
+  * 관리자용인가?
+  * 버킷 생성시 권한은?

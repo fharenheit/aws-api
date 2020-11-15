@@ -5,7 +5,7 @@
 
 ## API Reference
 
-https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html
+https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html
 
 ### Request 정리
 
@@ -79,6 +79,7 @@ s3_client = session.client(
 print(s3_client.list_buckets())
 ```
 
-## 이슈
+## 논의 대상
 
-* 버킷 목록의 경우 자기 자신의 목록을 가져오나 공통 버킷과 자신의 버킷을 가져오는 경우 Owner 설정이 문제
+* 사용자가 버킷 목록을 요청하면 어떤 것들을 리턴해야 하는가?
+  * ALL USER용 버킷 목록? + 자신의 버킷 목록?
