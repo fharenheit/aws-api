@@ -14,6 +14,7 @@ import java.io.InputStream;
 
 /**
  * Hadoop HDFS 유틸리티.
+ * 이 유틸리티의 모든 기능이 제대로 동작하려면 ISILON에 관리자 권한을 가진 계정으로 JVM Instance를 구동해야 한다.
  */
 public class HdfsUtils {
 
@@ -80,7 +81,7 @@ public class HdfsUtils {
     /**
      * "<tt>fs.default.name</tt>"에 해당하는 HDFS URL 정보로 Hadoop FileSystem을 반환한다.
      *
-     * @param fsDefaultName "<tt>core-site.xml</tt>"에 포함되어 있는 "<tt>fs.default.name</tt>" 값
+     * @param fsDefaultName Hadoop의 환경설정 파일인 "<tt>core-site.xml</tt>"에 포함되어 있는 "<tt>fs.default.name</tt>" 값
      * @return FileSystem
      */
     public static FileSystem getFileSystem(String fsDefaultName) {

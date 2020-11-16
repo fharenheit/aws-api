@@ -38,6 +38,7 @@ public class S3ModelUtils {
             c.setTime(new Date());
             return DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
         } catch (DatatypeConfigurationException e) {
+            // 이런 일이 발생할 가능성은 없음
             return null;
         }
     }
