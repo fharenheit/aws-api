@@ -1,9 +1,7 @@
 package com.datadynamics.bigdata.api.service.dynamo.commands;
 
-import com.amazonaws.http.SdkHttpMetadata;
 import com.amazonaws.services.dynamodbv2.model.ListTablesRequest;
 import com.amazonaws.services.dynamodbv2.model.ListTablesResult;
-import com.amazonaws.services.dynamodbv2.model.QueryRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.ResponseEntity;
 
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.UUID;
 
 public class ListTablesRequestCommand extends DefaultDynamoRequestCommand {
     @Override
