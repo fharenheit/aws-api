@@ -21,11 +21,12 @@ public class DynamoFrontController {
     @Autowired
     DynamoRequestDispatcher requestDispatcher;
 
-    @RequestMapping(method = {GET, POST, PUT, DELETE, PATCH})
+    @RequestMapping(method = {GET, POST, PUT, DELETE, PATCH},   produces = "application/x-amz-json-1.0")
     public ResponseEntity service(@RequestHeader Map<String, String> headers,
                                   HttpServletRequest request,
                                   HttpServletResponse response,
                                   @RequestBody String body) {
+        response.setHeader("Content-Type", "application/x-amz-json-1.0");
         DynamoRequestCommand command = requestDispatcher.getCommand(headers, request, body);
         return command.execute(headers, request, response, body);
     }

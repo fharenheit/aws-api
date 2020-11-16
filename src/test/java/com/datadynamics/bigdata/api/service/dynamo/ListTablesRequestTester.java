@@ -1,6 +1,5 @@
 package com.datadynamics.bigdata.api.service.dynamo;
 
-import com.amazonaws.AmazonServiceException;
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -30,44 +29,16 @@ public class ListTablesRequestTester {
 
         AmazonDynamoDB client = builder.build();
 
-
         ListTablesRequest request;
+        request = new ListTablesRequest()
+                .withLimit(10)
+                .withExclusiveStartTableName("last_name");
 
-        boolean more_tables = true;
-        String last_name = null;
+        ListTablesResult listTablesResult = client.listTables(request);
+        List<String> tableNames = listTablesResult.getTableNames();
 
-        while (more_tables) {
-            try {
-                if (last_name == null) {
-                    request = new ListTablesRequest().withLimit(10);
-                } else {
-                    request = new ListTablesRequest()
-                            .withLimit(10)
-                            .withExclusiveStartTableName(last_name);
-                }
-
-                ListTablesResult listTablesResult = client.listTables(request);
-                List<String> tableNames = listTablesResult.getTableNames();
-
-                if (tableNames.size() > 0) {
-                    for (String tableName : tableNames) {
-                        System.out.format("* %s\n", tableName);
-                    }
-                } else {
-                    System.out.println("No tables found!");
-                    System.exit(0);
-                }
-
-                last_name = listTablesResult.getLastEvaluatedTableName();
-                if (last_name == null) {
-                    more_tables = false;
-                }
-
-            } catch (AmazonServiceException e) {
-                System.err.println(e.getErrorMessage());
-                System.exit(1);
-            }
+        for (String tableName : tableNames) {
+            System.out.format("* %s\n", tableName);
         }
-        System.out.println("\nDone!");
     }
 }

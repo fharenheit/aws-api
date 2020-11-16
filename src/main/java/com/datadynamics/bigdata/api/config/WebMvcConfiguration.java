@@ -3,10 +3,15 @@ package com.datadynamics.bigdata.api.config;
 import com.amazonaws.HttpMethod;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import java.util.Arrays;
 
 @Slf4j
 @Configuration
@@ -45,4 +50,5 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         CorsRegistration registration = registry.addMapping("/**");
         registration.allowedMethods(HttpMethod.GET.name(), HttpMethod.GET.name(), HttpMethod.POST.name(), HttpMethod.PUT.name(), HttpMethod.DELETE.name());
     }
+
 }

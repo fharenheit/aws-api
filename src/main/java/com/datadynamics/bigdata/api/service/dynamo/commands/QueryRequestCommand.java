@@ -29,10 +29,11 @@ public class QueryRequestCommand extends DefaultDynamoRequestCommand {
             System.out.println(queryRequest.getKeyConditionExpression());
             System.out.println(queryRequest.getExpressionAttributeValues());
             System.out.println(queryRequest.getAttributesToGet());
+
+            QueryResult result = new QueryResult();
+            return ResponseEntity.ok(jsonMapper.writeValueAsString(result));
         } catch (JsonProcessingException e) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(new QueryResult());
     }
-
 }
