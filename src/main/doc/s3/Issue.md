@@ -15,7 +15,7 @@
 ## TODO
 
 * 공용 버킷의 매핑 정보를 DB에 넣기
-  * 예) A Bucket : hdfs://${ISILON_IP}/DataLake/A
+  * 예) A Bucket : `hdfs://${ISILON_IP}/DataLake/A`
 * 사용자 버킷의 HDFS의 Base Directory 정해두기
-  * 예) User Bucket Base Path : hdfs://${ISILON_IP}/s3users/${SSO_ID}
+  * 예) User Bucket Base Path : `hdfs://${ISILON_IP}/s3users/${SSO_ID}`
 * HDFS 관련 공통 코드 작성하기
