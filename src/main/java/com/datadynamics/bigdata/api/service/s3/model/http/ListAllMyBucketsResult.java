@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>ListAllMyBucketsResult complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType name="ListAllMyBucketsResult"&gt;
  *   &lt;complexContent&gt;
@@ -23,13 +23,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ListAllMyBucketsResult", propOrder = {
-    "owner",
-    "buckets"
+        "owner",
+        "buckets"
 })
 public class ListAllMyBucketsResult {
 
@@ -40,11 +38,9 @@ public class ListAllMyBucketsResult {
 
     /**
      * owner 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CanonicalUser }
-     *     
+     *
+     * @return possible object is
+     * {@link CanonicalUser }
      */
     public CanonicalUser getOwner() {
         return owner;
@@ -52,11 +48,9 @@ public class ListAllMyBucketsResult {
 
     /**
      * owner 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CanonicalUser }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CanonicalUser }
      */
     public void setOwner(CanonicalUser value) {
         this.owner = value;
@@ -64,11 +58,9 @@ public class ListAllMyBucketsResult {
 
     /**
      * buckets 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ListAllMyBucketsList }
-     *     
+     *
+     * @return possible object is
+     * {@link ListAllMyBucketsList }
      */
     public ListAllMyBucketsList getBuckets() {
         return buckets;
@@ -76,11 +68,9 @@ public class ListAllMyBucketsResult {
 
     /**
      * buckets 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ListAllMyBucketsList }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ListAllMyBucketsList }
      */
     public void setBuckets(ListAllMyBucketsList value) {
         this.buckets = value;

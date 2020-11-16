@@ -14,9 +14,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>anonymous complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -36,20 +36,18 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "bucket",
-    "key",
-    "getMetadata",
-    "getData",
-    "inlineData",
-    "awsAccessKeyId",
-    "timestamp",
-    "signature",
-    "credential"
+        "bucket",
+        "key",
+        "getMetadata",
+        "getData",
+        "inlineData",
+        "awsAccessKeyId",
+        "timestamp",
+        "signature",
+        "credential"
 })
 @XmlRootElement(name = "GetObject")
 public class GetObject {
@@ -76,11 +74,9 @@ public class GetObject {
 
     /**
      * bucket 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBucket() {
         return bucket;
@@ -88,11 +84,9 @@ public class GetObject {
 
     /**
      * bucket 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBucket(String value) {
         this.bucket = value;
@@ -100,11 +94,9 @@ public class GetObject {
 
     /**
      * key 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getKey() {
         return key;
@@ -112,11 +104,9 @@ public class GetObject {
 
     /**
      * key 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setKey(String value) {
         this.key = value;
@@ -124,7 +114,6 @@ public class GetObject {
 
     /**
      * getMetadata 속성의 값을 가져옵니다.
-     * 
      */
     public boolean isGetMetadata() {
         return getMetadata;
@@ -132,7 +121,6 @@ public class GetObject {
 
     /**
      * getMetadata 속성의 값을 설정합니다.
-     * 
      */
     public void setGetMetadata(boolean value) {
         this.getMetadata = value;
@@ -140,7 +128,6 @@ public class GetObject {
 
     /**
      * getData 속성의 값을 가져옵니다.
-     * 
      */
     public boolean isGetData() {
         return getData;
@@ -148,7 +135,6 @@ public class GetObject {
 
     /**
      * getData 속성의 값을 설정합니다.
-     * 
      */
     public void setGetData(boolean value) {
         this.getData = value;
@@ -156,7 +142,6 @@ public class GetObject {
 
     /**
      * inlineData 속성의 값을 가져옵니다.
-     * 
      */
     public boolean isInlineData() {
         return inlineData;
@@ -164,7 +149,6 @@ public class GetObject {
 
     /**
      * inlineData 속성의 값을 설정합니다.
-     * 
      */
     public void setInlineData(boolean value) {
         this.inlineData = value;
@@ -172,11 +156,9 @@ public class GetObject {
 
     /**
      * awsAccessKeyId 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAWSAccessKeyId() {
         return awsAccessKeyId;
@@ -184,11 +166,9 @@ public class GetObject {
 
     /**
      * awsAccessKeyId 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAWSAccessKeyId(String value) {
         this.awsAccessKeyId = value;
@@ -196,11 +176,9 @@ public class GetObject {
 
     /**
      * timestamp 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getTimestamp() {
         return timestamp;
@@ -208,11 +186,9 @@ public class GetObject {
 
     /**
      * timestamp 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setTimestamp(XMLGregorianCalendar value) {
         this.timestamp = value;
@@ -220,11 +196,9 @@ public class GetObject {
 
     /**
      * signature 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSignature() {
         return signature;
@@ -232,11 +206,9 @@ public class GetObject {
 
     /**
      * signature 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSignature(String value) {
         this.signature = value;
@@ -244,11 +216,9 @@ public class GetObject {
 
     /**
      * credential 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCredential() {
         return credential;
@@ -256,11 +226,9 @@ public class GetObject {
 
     /**
      * credential 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCredential(String value) {
         this.credential = value;

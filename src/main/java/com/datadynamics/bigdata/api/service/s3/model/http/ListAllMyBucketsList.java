@@ -18,9 +18,9 @@ import java.util.List;
 
 /**
  * <p>ListAllMyBucketsList complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType name="ListAllMyBucketsList"&gt;
  *   &lt;complexContent&gt;
@@ -32,12 +32,10 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ListAllMyBucketsList", propOrder = {
-    "bucket"
+        "bucket"
 })
 public class ListAllMyBucketsList {
 
@@ -46,25 +44,23 @@ public class ListAllMyBucketsList {
 
     /**
      * Gets the value of the bucket property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the bucket property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBucket().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ListAllMyBucketsEntry }
-     * 
-     * 
      */
     public List<ListAllMyBucketsEntry> getBucket() {
         if (bucket == null) {

@@ -16,9 +16,9 @@ import java.util.List;
 
 /**
  * <p>anonymous complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -45,27 +45,25 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "sourceBucket",
-    "sourceKey",
-    "destinationBucket",
-    "destinationKey",
-    "metadataDirective",
-    "metadata",
-    "accessControlList",
-    "copySourceIfModifiedSince",
-    "copySourceIfUnmodifiedSince",
-    "copySourceIfMatch",
-    "copySourceIfNoneMatch",
-    "storageClass",
-    "awsAccessKeyId",
-    "timestamp",
-    "signature",
-    "credential"
+        "sourceBucket",
+        "sourceKey",
+        "destinationBucket",
+        "destinationKey",
+        "metadataDirective",
+        "metadata",
+        "accessControlList",
+        "copySourceIfModifiedSince",
+        "copySourceIfUnmodifiedSince",
+        "copySourceIfMatch",
+        "copySourceIfNoneMatch",
+        "storageClass",
+        "awsAccessKeyId",
+        "timestamp",
+        "signature",
+        "credential"
 })
 @XmlRootElement(name = "CopyObject")
 public class CopyObject {
@@ -110,11 +108,9 @@ public class CopyObject {
 
     /**
      * sourceBucket 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSourceBucket() {
         return sourceBucket;
@@ -122,11 +118,9 @@ public class CopyObject {
 
     /**
      * sourceBucket 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSourceBucket(String value) {
         this.sourceBucket = value;
@@ -134,11 +128,9 @@ public class CopyObject {
 
     /**
      * sourceKey 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSourceKey() {
         return sourceKey;
@@ -146,11 +138,9 @@ public class CopyObject {
 
     /**
      * sourceKey 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSourceKey(String value) {
         this.sourceKey = value;
@@ -158,11 +148,9 @@ public class CopyObject {
 
     /**
      * destinationBucket 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDestinationBucket() {
         return destinationBucket;
@@ -170,11 +158,9 @@ public class CopyObject {
 
     /**
      * destinationBucket 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDestinationBucket(String value) {
         this.destinationBucket = value;
@@ -182,11 +168,9 @@ public class CopyObject {
 
     /**
      * destinationKey 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDestinationKey() {
         return destinationKey;
@@ -194,11 +178,9 @@ public class CopyObject {
 
     /**
      * destinationKey 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDestinationKey(String value) {
         this.destinationKey = value;
@@ -206,11 +188,9 @@ public class CopyObject {
 
     /**
      * metadataDirective 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link MetadataDirective }
-     *     
+     *
+     * @return possible object is
+     * {@link MetadataDirective }
      */
     public MetadataDirective getMetadataDirective() {
         return metadataDirective;
@@ -218,11 +198,9 @@ public class CopyObject {
 
     /**
      * metadataDirective 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link MetadataDirective }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link MetadataDirective }
      */
     public void setMetadataDirective(MetadataDirective value) {
         this.metadataDirective = value;
@@ -230,25 +208,23 @@ public class CopyObject {
 
     /**
      * Gets the value of the metadata property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the metadata property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMetadata().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MetadataEntry }
-     * 
-     * 
      */
     public List<MetadataEntry> getMetadata() {
         if (metadata == null) {
@@ -259,11 +235,9 @@ public class CopyObject {
 
     /**
      * accessControlList 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AccessControlList }
-     *     
+     *
+     * @return possible object is
+     * {@link AccessControlList }
      */
     public AccessControlList getAccessControlList() {
         return accessControlList;
@@ -271,11 +245,9 @@ public class CopyObject {
 
     /**
      * accessControlList 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AccessControlList }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link AccessControlList }
      */
     public void setAccessControlList(AccessControlList value) {
         this.accessControlList = value;
@@ -283,11 +255,9 @@ public class CopyObject {
 
     /**
      * copySourceIfModifiedSince 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getCopySourceIfModifiedSince() {
         return copySourceIfModifiedSince;
@@ -295,11 +265,9 @@ public class CopyObject {
 
     /**
      * copySourceIfModifiedSince 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setCopySourceIfModifiedSince(XMLGregorianCalendar value) {
         this.copySourceIfModifiedSince = value;
@@ -307,11 +275,9 @@ public class CopyObject {
 
     /**
      * copySourceIfUnmodifiedSince 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getCopySourceIfUnmodifiedSince() {
         return copySourceIfUnmodifiedSince;
@@ -319,11 +285,9 @@ public class CopyObject {
 
     /**
      * copySourceIfUnmodifiedSince 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setCopySourceIfUnmodifiedSince(XMLGregorianCalendar value) {
         this.copySourceIfUnmodifiedSince = value;
@@ -331,25 +295,23 @@ public class CopyObject {
 
     /**
      * Gets the value of the copySourceIfMatch property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the copySourceIfMatch property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCopySourceIfMatch().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getCopySourceIfMatch() {
         if (copySourceIfMatch == null) {
@@ -360,25 +322,23 @@ public class CopyObject {
 
     /**
      * Gets the value of the copySourceIfNoneMatch property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the copySourceIfNoneMatch property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCopySourceIfNoneMatch().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getCopySourceIfNoneMatch() {
         if (copySourceIfNoneMatch == null) {
@@ -389,11 +349,9 @@ public class CopyObject {
 
     /**
      * storageClass 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StorageClass }
-     *     
+     *
+     * @return possible object is
+     * {@link StorageClass }
      */
     public StorageClass getStorageClass() {
         return storageClass;
@@ -401,11 +359,9 @@ public class CopyObject {
 
     /**
      * storageClass 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link StorageClass }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link StorageClass }
      */
     public void setStorageClass(StorageClass value) {
         this.storageClass = value;
@@ -413,11 +369,9 @@ public class CopyObject {
 
     /**
      * awsAccessKeyId 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAWSAccessKeyId() {
         return awsAccessKeyId;
@@ -425,11 +379,9 @@ public class CopyObject {
 
     /**
      * awsAccessKeyId 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAWSAccessKeyId(String value) {
         this.awsAccessKeyId = value;
@@ -437,11 +389,9 @@ public class CopyObject {
 
     /**
      * timestamp 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getTimestamp() {
         return timestamp;
@@ -449,11 +399,9 @@ public class CopyObject {
 
     /**
      * timestamp 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setTimestamp(XMLGregorianCalendar value) {
         this.timestamp = value;
@@ -461,11 +409,9 @@ public class CopyObject {
 
     /**
      * signature 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSignature() {
         return signature;
@@ -473,11 +419,9 @@ public class CopyObject {
 
     /**
      * signature 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSignature(String value) {
         this.signature = value;
@@ -485,11 +429,9 @@ public class CopyObject {
 
     /**
      * credential 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCredential() {
         return credential;
@@ -497,11 +439,9 @@ public class CopyObject {
 
     /**
      * credential 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCredential(String value) {
         this.credential = value;

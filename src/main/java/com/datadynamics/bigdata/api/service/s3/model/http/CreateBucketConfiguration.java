@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>CreateBucketConfiguration complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType name="CreateBucketConfiguration"&gt;
  *   &lt;complexContent&gt;
@@ -30,12 +30,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CreateBucketConfiguration", propOrder = {
-    "locationConstraint"
+        "locationConstraint"
 })
 public class CreateBucketConfiguration {
 
@@ -44,11 +42,9 @@ public class CreateBucketConfiguration {
 
     /**
      * locationConstraint 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LocationConstraint }
-     *     
+     *
+     * @return possible object is
+     * {@link LocationConstraint }
      */
     public LocationConstraint getLocationConstraint() {
         return locationConstraint;
@@ -56,11 +52,9 @@ public class CreateBucketConfiguration {
 
     /**
      * locationConstraint 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link LocationConstraint }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link LocationConstraint }
      */
     public void setLocationConstraint(LocationConstraint value) {
         this.locationConstraint = value;

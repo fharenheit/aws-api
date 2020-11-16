@@ -14,9 +14,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>PutObjectResult complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType name="PutObjectResult"&gt;
  *   &lt;complexContent&gt;
@@ -29,13 +29,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PutObjectResult", propOrder = {
-    "eTag",
-    "lastModified"
+        "eTag",
+        "lastModified"
 })
 public class PutObjectResult {
 
@@ -47,11 +45,9 @@ public class PutObjectResult {
 
     /**
      * eTag 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getETag() {
         return eTag;
@@ -59,11 +55,9 @@ public class PutObjectResult {
 
     /**
      * eTag 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setETag(String value) {
         this.eTag = value;
@@ -71,11 +65,9 @@ public class PutObjectResult {
 
     /**
      * lastModified 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getLastModified() {
         return lastModified;
@@ -83,11 +75,9 @@ public class PutObjectResult {
 
     /**
      * lastModified 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setLastModified(XMLGregorianCalendar value) {
         this.lastModified = value;

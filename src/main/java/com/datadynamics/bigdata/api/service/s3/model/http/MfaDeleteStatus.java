@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>MfaDeleteStatus에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
  * <p>
  * <pre>
@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
- * 
  */
 @XmlType(name = "MfaDeleteStatus")
 @XmlEnum
@@ -47,7 +46,7 @@ public enum MfaDeleteStatus {
     }
 
     public static MfaDeleteStatus fromValue(String v) {
-        for (MfaDeleteStatus c: MfaDeleteStatus.values()) {
+        for (MfaDeleteStatus c : MfaDeleteStatus.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>AccessControlPolicy complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType name="AccessControlPolicy"&gt;
  *   &lt;complexContent&gt;
@@ -31,13 +31,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AccessControlPolicy", propOrder = {
-    "owner",
-    "accessControlList"
+        "owner",
+        "accessControlList"
 })
 public class AccessControlPolicy {
 
@@ -48,11 +46,9 @@ public class AccessControlPolicy {
 
     /**
      * owner 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CanonicalUser }
-     *     
+     *
+     * @return possible object is
+     * {@link CanonicalUser }
      */
     public CanonicalUser getOwner() {
         return owner;
@@ -60,11 +56,9 @@ public class AccessControlPolicy {
 
     /**
      * owner 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CanonicalUser }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CanonicalUser }
      */
     public void setOwner(CanonicalUser value) {
         this.owner = value;
@@ -72,11 +66,9 @@ public class AccessControlPolicy {
 
     /**
      * accessControlList 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AccessControlList }
-     *     
+     *
+     * @return possible object is
+     * {@link AccessControlList }
      */
     public AccessControlList getAccessControlList() {
         return accessControlList;
@@ -84,11 +76,9 @@ public class AccessControlPolicy {
 
     /**
      * accessControlList 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AccessControlList }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link AccessControlList }
      */
     public void setAccessControlList(AccessControlList value) {
         this.accessControlList = value;

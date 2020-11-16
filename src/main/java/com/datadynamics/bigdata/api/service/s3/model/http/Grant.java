@@ -13,9 +13,9 @@ import javax.xml.bind.annotation.*;
 
 /**
  * <p>Grant complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType name="Grant"&gt;
  *   &lt;complexContent&gt;
@@ -28,13 +28,11 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Grant", propOrder = {
-    "grantee",
-    "permission"
+        "grantee",
+        "permission"
 })
 public class Grant {
 
@@ -46,11 +44,9 @@ public class Grant {
 
     /**
      * grantee 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Grantee }
-     *     
+     *
+     * @return possible object is
+     * {@link Grantee }
      */
     public Grantee getGrantee() {
         return grantee;
@@ -58,11 +54,9 @@ public class Grant {
 
     /**
      * grantee 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Grantee }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Grantee }
      */
     public void setGrantee(Grantee value) {
         this.grantee = value;
@@ -70,11 +64,9 @@ public class Grant {
 
     /**
      * permission 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Permission }
-     *     
+     *
+     * @return possible object is
+     * {@link Permission }
      */
     public Permission getPermission() {
         return permission;
@@ -82,11 +74,9 @@ public class Grant {
 
     /**
      * permission 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Permission }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Permission }
      */
     public void setPermission(Permission value) {
         this.permission = value;

@@ -16,9 +16,9 @@ import java.util.List;
 
 /**
  * <p>anonymous complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -40,22 +40,20 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "bucket",
-    "key",
-    "metadata",
-    "data",
-    "contentLength",
-    "accessControlList",
-    "storageClass",
-    "awsAccessKeyId",
-    "timestamp",
-    "signature",
-    "credential"
+        "bucket",
+        "key",
+        "metadata",
+        "data",
+        "contentLength",
+        "accessControlList",
+        "storageClass",
+        "awsAccessKeyId",
+        "timestamp",
+        "signature",
+        "credential"
 })
 @XmlRootElement(name = "PutObjectInline")
 public class PutObjectInline {
@@ -87,11 +85,9 @@ public class PutObjectInline {
 
     /**
      * bucket 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBucket() {
         return bucket;
@@ -99,11 +95,9 @@ public class PutObjectInline {
 
     /**
      * bucket 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBucket(String value) {
         this.bucket = value;
@@ -111,11 +105,9 @@ public class PutObjectInline {
 
     /**
      * key 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getKey() {
         return key;
@@ -123,11 +115,9 @@ public class PutObjectInline {
 
     /**
      * key 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setKey(String value) {
         this.key = value;
@@ -135,25 +125,23 @@ public class PutObjectInline {
 
     /**
      * Gets the value of the metadata property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the metadata property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMetadata().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MetadataEntry }
-     * 
-     * 
      */
     public List<MetadataEntry> getMetadata() {
         if (metadata == null) {
@@ -164,10 +152,9 @@ public class PutObjectInline {
 
     /**
      * data 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getData() {
         return data;
@@ -175,10 +162,9 @@ public class PutObjectInline {
 
     /**
      * data 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setData(byte[] value) {
         this.data = value;
@@ -186,7 +172,6 @@ public class PutObjectInline {
 
     /**
      * contentLength 속성의 값을 가져옵니다.
-     * 
      */
     public long getContentLength() {
         return contentLength;
@@ -194,7 +179,6 @@ public class PutObjectInline {
 
     /**
      * contentLength 속성의 값을 설정합니다.
-     * 
      */
     public void setContentLength(long value) {
         this.contentLength = value;
@@ -202,11 +186,9 @@ public class PutObjectInline {
 
     /**
      * accessControlList 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AccessControlList }
-     *     
+     *
+     * @return possible object is
+     * {@link AccessControlList }
      */
     public AccessControlList getAccessControlList() {
         return accessControlList;
@@ -214,11 +196,9 @@ public class PutObjectInline {
 
     /**
      * accessControlList 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AccessControlList }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link AccessControlList }
      */
     public void setAccessControlList(AccessControlList value) {
         this.accessControlList = value;
@@ -226,11 +206,9 @@ public class PutObjectInline {
 
     /**
      * storageClass 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StorageClass }
-     *     
+     *
+     * @return possible object is
+     * {@link StorageClass }
      */
     public StorageClass getStorageClass() {
         return storageClass;
@@ -238,11 +216,9 @@ public class PutObjectInline {
 
     /**
      * storageClass 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link StorageClass }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link StorageClass }
      */
     public void setStorageClass(StorageClass value) {
         this.storageClass = value;
@@ -250,11 +226,9 @@ public class PutObjectInline {
 
     /**
      * awsAccessKeyId 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAWSAccessKeyId() {
         return awsAccessKeyId;
@@ -262,11 +236,9 @@ public class PutObjectInline {
 
     /**
      * awsAccessKeyId 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAWSAccessKeyId(String value) {
         this.awsAccessKeyId = value;
@@ -274,11 +246,9 @@ public class PutObjectInline {
 
     /**
      * timestamp 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getTimestamp() {
         return timestamp;
@@ -286,11 +256,9 @@ public class PutObjectInline {
 
     /**
      * timestamp 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setTimestamp(XMLGregorianCalendar value) {
         this.timestamp = value;
@@ -298,11 +266,9 @@ public class PutObjectInline {
 
     /**
      * signature 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSignature() {
         return signature;
@@ -310,11 +276,9 @@ public class PutObjectInline {
 
     /**
      * signature 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSignature(String value) {
         this.signature = value;
@@ -322,11 +286,9 @@ public class PutObjectInline {
 
     /**
      * credential 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCredential() {
         return credential;
@@ -334,11 +296,9 @@ public class PutObjectInline {
 
     /**
      * credential 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCredential(String value) {
         this.credential = value;

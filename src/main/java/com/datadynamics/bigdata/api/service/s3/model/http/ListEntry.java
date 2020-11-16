@@ -14,9 +14,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>ListEntry complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType name="ListEntry"&gt;
  *   &lt;complexContent&gt;
@@ -33,17 +33,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ListEntry", propOrder = {
-    "key",
-    "lastModified",
-    "eTag",
-    "size",
-    "owner",
-    "storageClass"
+        "key",
+        "lastModified",
+        "eTag",
+        "size",
+        "owner",
+        "storageClass"
 })
 public class ListEntry {
 
@@ -64,11 +62,9 @@ public class ListEntry {
 
     /**
      * key 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getKey() {
         return key;
@@ -76,11 +72,9 @@ public class ListEntry {
 
     /**
      * key 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setKey(String value) {
         this.key = value;
@@ -88,11 +82,9 @@ public class ListEntry {
 
     /**
      * lastModified 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getLastModified() {
         return lastModified;
@@ -100,11 +92,9 @@ public class ListEntry {
 
     /**
      * lastModified 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setLastModified(XMLGregorianCalendar value) {
         this.lastModified = value;
@@ -112,11 +102,9 @@ public class ListEntry {
 
     /**
      * eTag 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getETag() {
         return eTag;
@@ -124,11 +112,9 @@ public class ListEntry {
 
     /**
      * eTag 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setETag(String value) {
         this.eTag = value;
@@ -136,7 +122,6 @@ public class ListEntry {
 
     /**
      * size 속성의 값을 가져옵니다.
-     * 
      */
     public long getSize() {
         return size;
@@ -144,7 +129,6 @@ public class ListEntry {
 
     /**
      * size 속성의 값을 설정합니다.
-     * 
      */
     public void setSize(long value) {
         this.size = value;
@@ -152,11 +136,9 @@ public class ListEntry {
 
     /**
      * owner 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CanonicalUser }
-     *     
+     *
+     * @return possible object is
+     * {@link CanonicalUser }
      */
     public CanonicalUser getOwner() {
         return owner;
@@ -164,11 +146,9 @@ public class ListEntry {
 
     /**
      * owner 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CanonicalUser }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CanonicalUser }
      */
     public void setOwner(CanonicalUser value) {
         this.owner = value;
@@ -176,11 +156,9 @@ public class ListEntry {
 
     /**
      * storageClass 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link StorageClass }
-     *     
+     *
+     * @return possible object is
+     * {@link StorageClass }
      */
     public StorageClass getStorageClass() {
         return storageClass;
@@ -188,11 +166,9 @@ public class ListEntry {
 
     /**
      * storageClass 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link StorageClass }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link StorageClass }
      */
     public void setStorageClass(StorageClass value) {
         this.storageClass = value;

@@ -30,7 +30,7 @@ public class DynamoUsageLogging {
     @Column(name = "data_source_type", columnDefinition = "VARCHAR(20)", nullable = true)
     @Enumerated(EnumType.STRING)
     DataSourceTypeEnum dataSourceType;
-    
+
     /**
      * 스키마명
      */

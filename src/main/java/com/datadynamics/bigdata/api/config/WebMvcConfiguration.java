@@ -3,7 +3,6 @@ package com.datadynamics.bigdata.api.config;
 import com.amazonaws.HttpMethod;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.config.annotation.*;

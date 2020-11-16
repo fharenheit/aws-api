@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.service.s3.model;
+package com.datadynamics.bigdata.api.service.s3.util;
 
 import com.datadynamics.bigdata.api.service.s3.model.http.*;
 
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class ModelUtils {
+public class S3ModelUtils {
 
     public static ListAllMyBucketsResponse listBuckets(String id, String owner, String... buckets) {
         ListAllMyBucketsResult result = new ListAllMyBucketsResult();

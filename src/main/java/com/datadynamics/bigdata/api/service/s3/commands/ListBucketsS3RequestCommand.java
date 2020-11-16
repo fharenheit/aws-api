@@ -1,9 +1,9 @@
 package com.datadynamics.bigdata.api.service.s3.commands;
 
 import com.datadynamics.bigdata.api.service.s3.model.Bucket;
-import com.datadynamics.bigdata.api.service.s3.model.ModelUtils;
 import com.datadynamics.bigdata.api.service.s3.model.http.ListAllMyBucketsResponse;
 import com.datadynamics.bigdata.api.service.s3.repository.BucketRepository;
+import com.datadynamics.bigdata.api.service.s3.util.S3ModelUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -48,7 +48,7 @@ public class ListBucketsS3RequestCommand extends DefaultS3RequestCommand impleme
             for (Bucket b : byBuckets) {
                 bucketNames.add(b.getBucketName());
             }
-            return ResponseEntity.ok(ModelUtils.listBuckets(username, username, bucketNames.toArray(new String[byBuckets.size()])));
+            return ResponseEntity.ok(S3ModelUtils.listBuckets(username, username, bucketNames.toArray(new String[byBuckets.size()])));
         }
     }
 

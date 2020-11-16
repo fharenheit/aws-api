@@ -12,18 +12,17 @@ import javax.xml.bind.annotation.XmlRegistry;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the com.example.myschema package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the com.example.myschema package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -31,14 +30,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.example.myschema
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link CreateBucket }
-     * 
      */
     public CreateBucket createCreateBucket() {
         return new CreateBucket();
@@ -46,7 +43,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AccessControlList }
-     * 
      */
     public AccessControlList createAccessControlList() {
         return new AccessControlList();
@@ -54,7 +50,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CreateBucketResponse }
-     * 
      */
     public CreateBucketResponse createCreateBucketResponse() {
         return new CreateBucketResponse();
@@ -62,7 +57,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CreateBucketResult }
-     * 
      */
     public CreateBucketResult createCreateBucketResult() {
         return new CreateBucketResult();
@@ -70,7 +64,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteBucket }
-     * 
      */
     public DeleteBucket createDeleteBucket() {
         return new DeleteBucket();
@@ -78,7 +71,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteBucketResponse }
-     * 
      */
     public DeleteBucketResponse createDeleteBucketResponse() {
         return new DeleteBucketResponse();
@@ -86,7 +78,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Status }
-     * 
      */
     public Status createStatus() {
         return new Status();
@@ -94,7 +85,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetBucketLoggingStatus }
-     * 
      */
     public GetBucketLoggingStatus createGetBucketLoggingStatus() {
         return new GetBucketLoggingStatus();
@@ -102,7 +92,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetBucketLoggingStatusResponse }
-     * 
      */
     public GetBucketLoggingStatusResponse createGetBucketLoggingStatusResponse() {
         return new GetBucketLoggingStatusResponse();
@@ -110,7 +99,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BucketLoggingStatus }
-     * 
      */
     public BucketLoggingStatus createBucketLoggingStatus() {
         return new BucketLoggingStatus();
@@ -118,7 +106,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SetBucketLoggingStatus }
-     * 
      */
     public SetBucketLoggingStatus createSetBucketLoggingStatus() {
         return new SetBucketLoggingStatus();
@@ -126,7 +113,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SetBucketLoggingStatusResponse }
-     * 
      */
     public SetBucketLoggingStatusResponse createSetBucketLoggingStatusResponse() {
         return new SetBucketLoggingStatusResponse();
@@ -134,7 +120,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetObjectAccessControlPolicy }
-     * 
      */
     public GetObjectAccessControlPolicy createGetObjectAccessControlPolicy() {
         return new GetObjectAccessControlPolicy();
@@ -142,7 +127,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetObjectAccessControlPolicyResponse }
-     * 
      */
     public GetObjectAccessControlPolicyResponse createGetObjectAccessControlPolicyResponse() {
         return new GetObjectAccessControlPolicyResponse();
@@ -150,7 +134,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AccessControlPolicy }
-     * 
      */
     public AccessControlPolicy createAccessControlPolicy() {
         return new AccessControlPolicy();
@@ -158,7 +141,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetBucketAccessControlPolicy }
-     * 
      */
     public GetBucketAccessControlPolicy createGetBucketAccessControlPolicy() {
         return new GetBucketAccessControlPolicy();
@@ -166,7 +148,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetBucketAccessControlPolicyResponse }
-     * 
      */
     public GetBucketAccessControlPolicyResponse createGetBucketAccessControlPolicyResponse() {
         return new GetBucketAccessControlPolicyResponse();
@@ -174,7 +155,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SetObjectAccessControlPolicy }
-     * 
      */
     public SetObjectAccessControlPolicy createSetObjectAccessControlPolicy() {
         return new SetObjectAccessControlPolicy();
@@ -182,7 +162,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SetObjectAccessControlPolicyResponse }
-     * 
      */
     public SetObjectAccessControlPolicyResponse createSetObjectAccessControlPolicyResponse() {
         return new SetObjectAccessControlPolicyResponse();
@@ -190,7 +169,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SetBucketAccessControlPolicy }
-     * 
      */
     public SetBucketAccessControlPolicy createSetBucketAccessControlPolicy() {
         return new SetBucketAccessControlPolicy();
@@ -198,7 +176,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SetBucketAccessControlPolicyResponse }
-     * 
      */
     public SetBucketAccessControlPolicyResponse createSetBucketAccessControlPolicyResponse() {
         return new SetBucketAccessControlPolicyResponse();
@@ -206,7 +183,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetObject }
-     * 
      */
     public GetObject createGetObject() {
         return new GetObject();
@@ -214,7 +190,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetObjectResponse }
-     * 
      */
     public GetObjectResponse createGetObjectResponse() {
         return new GetObjectResponse();
@@ -222,7 +197,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetObjectResult }
-     * 
      */
     public GetObjectResult createGetObjectResult() {
         return new GetObjectResult();
@@ -230,7 +204,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetObjectExtended }
-     * 
      */
     public GetObjectExtended createGetObjectExtended() {
         return new GetObjectExtended();
@@ -238,7 +211,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetObjectExtendedResponse }
-     * 
      */
     public GetObjectExtendedResponse createGetObjectExtendedResponse() {
         return new GetObjectExtendedResponse();
@@ -246,7 +218,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PutObject }
-     * 
      */
     public PutObject createPutObject() {
         return new PutObject();
@@ -254,7 +225,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MetadataEntry }
-     * 
      */
     public MetadataEntry createMetadataEntry() {
         return new MetadataEntry();
@@ -262,7 +232,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PutObjectResponse }
-     * 
      */
     public PutObjectResponse createPutObjectResponse() {
         return new PutObjectResponse();
@@ -270,7 +239,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PutObjectResult }
-     * 
      */
     public PutObjectResult createPutObjectResult() {
         return new PutObjectResult();
@@ -278,7 +246,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PutObjectInline }
-     * 
      */
     public PutObjectInline createPutObjectInline() {
         return new PutObjectInline();
@@ -286,7 +253,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PutObjectInlineResponse }
-     * 
      */
     public PutObjectInlineResponse createPutObjectInlineResponse() {
         return new PutObjectInlineResponse();
@@ -294,7 +260,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteObject }
-     * 
      */
     public DeleteObject createDeleteObject() {
         return new DeleteObject();
@@ -302,7 +267,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteObjectResponse }
-     * 
      */
     public DeleteObjectResponse createDeleteObjectResponse() {
         return new DeleteObjectResponse();
@@ -310,7 +274,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListBucket }
-     * 
      */
     public ListBucket createListBucket() {
         return new ListBucket();
@@ -318,7 +281,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListBucketResponse }
-     * 
      */
     public ListBucketResponse createListBucketResponse() {
         return new ListBucketResponse();
@@ -326,7 +288,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListBucketResult }
-     * 
      */
     public ListBucketResult createListBucketResult() {
         return new ListBucketResult();
@@ -334,7 +295,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListVersionsResponse }
-     * 
      */
     public ListVersionsResponse createListVersionsResponse() {
         return new ListVersionsResponse();
@@ -342,7 +302,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListVersionsResult }
-     * 
      */
     public ListVersionsResult createListVersionsResult() {
         return new ListVersionsResult();
@@ -350,7 +309,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListAllMyBuckets }
-     * 
      */
     public ListAllMyBuckets createListAllMyBuckets() {
         return new ListAllMyBuckets();
@@ -358,7 +316,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListAllMyBucketsResponse }
-     * 
      */
     public ListAllMyBucketsResponse createListAllMyBucketsResponse() {
         return new ListAllMyBucketsResponse();
@@ -366,7 +323,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListAllMyBucketsResult }
-     * 
      */
     public ListAllMyBucketsResult createListAllMyBucketsResult() {
         return new ListAllMyBucketsResult();
@@ -374,7 +330,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PostResponse }
-     * 
      */
     public PostResponse createPostResponse() {
         return new PostResponse();
@@ -382,7 +337,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CopyObject }
-     * 
      */
     public CopyObject createCopyObject() {
         return new CopyObject();
@@ -390,7 +344,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CopyObjectResponse }
-     * 
      */
     public CopyObjectResponse createCopyObjectResponse() {
         return new CopyObjectResponse();
@@ -398,7 +351,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CopyObjectResult }
-     * 
      */
     public CopyObjectResult createCopyObjectResult() {
         return new CopyObjectResult();
@@ -406,7 +358,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Result }
-     * 
      */
     public Result createResult() {
         return new Result();
@@ -414,7 +365,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoggingSettings }
-     * 
      */
     public LoggingSettings createLoggingSettings() {
         return new LoggingSettings();
@@ -422,7 +372,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AmazonCustomerByEmail }
-     * 
      */
     public AmazonCustomerByEmail createAmazonCustomerByEmail() {
         return new AmazonCustomerByEmail();
@@ -430,7 +379,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CanonicalUser }
-     * 
      */
     public CanonicalUser createCanonicalUser() {
         return new CanonicalUser();
@@ -438,7 +386,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Group }
-     * 
      */
     public Group createGroup() {
         return new Group();
@@ -446,7 +393,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Grant }
-     * 
      */
     public Grant createGrant() {
         return new Grant();
@@ -454,7 +400,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CreateBucketConfiguration }
-     * 
      */
     public CreateBucketConfiguration createCreateBucketConfiguration() {
         return new CreateBucketConfiguration();
@@ -462,7 +407,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LocationConstraint }
-     * 
      */
     public LocationConstraint createLocationConstraint() {
         return new LocationConstraint();
@@ -470,7 +414,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListEntry }
-     * 
      */
     public ListEntry createListEntry() {
         return new ListEntry();
@@ -478,7 +421,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VersionEntry }
-     * 
      */
     public VersionEntry createVersionEntry() {
         return new VersionEntry();
@@ -486,7 +428,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteMarkerEntry }
-     * 
      */
     public DeleteMarkerEntry createDeleteMarkerEntry() {
         return new DeleteMarkerEntry();
@@ -494,7 +435,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PrefixEntry }
-     * 
      */
     public PrefixEntry createPrefixEntry() {
         return new PrefixEntry();
@@ -502,7 +442,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListAllMyBucketsEntry }
-     * 
      */
     public ListAllMyBucketsEntry createListAllMyBucketsEntry() {
         return new ListAllMyBucketsEntry();
@@ -510,7 +449,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ListAllMyBucketsList }
-     * 
      */
     public ListAllMyBucketsList createListAllMyBucketsList() {
         return new ListAllMyBucketsList();
@@ -518,7 +456,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RequestPaymentConfiguration }
-     * 
      */
     public RequestPaymentConfiguration createRequestPaymentConfiguration() {
         return new RequestPaymentConfiguration();
@@ -526,7 +463,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link VersioningConfiguration }
-     * 
      */
     public VersioningConfiguration createVersioningConfiguration() {
         return new VersioningConfiguration();
@@ -534,7 +470,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NotificationConfiguration }
-     * 
      */
     public NotificationConfiguration createNotificationConfiguration() {
         return new NotificationConfiguration();
@@ -542,7 +477,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TopicConfiguration }
-     * 
      */
     public TopicConfiguration createTopicConfiguration() {
         return new TopicConfiguration();

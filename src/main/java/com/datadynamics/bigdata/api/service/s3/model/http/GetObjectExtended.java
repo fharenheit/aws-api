@@ -16,9 +16,9 @@ import java.util.List;
 
 /**
  * <p>anonymous complex type에 대한 Java 클래스입니다.
- * 
+ *
  * <p>다음 스키마 단편이 이 클래스에 포함되는 필요한 콘텐츠를 지정합니다.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -45,27 +45,25 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "bucket",
-    "key",
-    "getMetadata",
-    "getData",
-    "inlineData",
-    "byteRangeStart",
-    "byteRangeEnd",
-    "ifModifiedSince",
-    "ifUnmodifiedSince",
-    "ifMatch",
-    "ifNoneMatch",
-    "returnCompleteObjectOnConditionFailure",
-    "awsAccessKeyId",
-    "timestamp",
-    "signature",
-    "credential"
+        "bucket",
+        "key",
+        "getMetadata",
+        "getData",
+        "inlineData",
+        "byteRangeStart",
+        "byteRangeEnd",
+        "ifModifiedSince",
+        "ifUnmodifiedSince",
+        "ifMatch",
+        "ifNoneMatch",
+        "returnCompleteObjectOnConditionFailure",
+        "awsAccessKeyId",
+        "timestamp",
+        "signature",
+        "credential"
 })
 @XmlRootElement(name = "GetObjectExtended")
 public class GetObjectExtended {
@@ -108,11 +106,9 @@ public class GetObjectExtended {
 
     /**
      * bucket 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBucket() {
         return bucket;
@@ -120,11 +116,9 @@ public class GetObjectExtended {
 
     /**
      * bucket 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBucket(String value) {
         this.bucket = value;
@@ -132,11 +126,9 @@ public class GetObjectExtended {
 
     /**
      * key 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getKey() {
         return key;
@@ -144,11 +136,9 @@ public class GetObjectExtended {
 
     /**
      * key 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setKey(String value) {
         this.key = value;
@@ -156,7 +146,6 @@ public class GetObjectExtended {
 
     /**
      * getMetadata 속성의 값을 가져옵니다.
-     * 
      */
     public boolean isGetMetadata() {
         return getMetadata;
@@ -164,7 +153,6 @@ public class GetObjectExtended {
 
     /**
      * getMetadata 속성의 값을 설정합니다.
-     * 
      */
     public void setGetMetadata(boolean value) {
         this.getMetadata = value;
@@ -172,7 +160,6 @@ public class GetObjectExtended {
 
     /**
      * getData 속성의 값을 가져옵니다.
-     * 
      */
     public boolean isGetData() {
         return getData;
@@ -180,7 +167,6 @@ public class GetObjectExtended {
 
     /**
      * getData 속성의 값을 설정합니다.
-     * 
      */
     public void setGetData(boolean value) {
         this.getData = value;
@@ -188,7 +174,6 @@ public class GetObjectExtended {
 
     /**
      * inlineData 속성의 값을 가져옵니다.
-     * 
      */
     public boolean isInlineData() {
         return inlineData;
@@ -196,7 +181,6 @@ public class GetObjectExtended {
 
     /**
      * inlineData 속성의 값을 설정합니다.
-     * 
      */
     public void setInlineData(boolean value) {
         this.inlineData = value;
@@ -204,11 +188,9 @@ public class GetObjectExtended {
 
     /**
      * byteRangeStart 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is
+     * {@link Long }
      */
     public Long getByteRangeStart() {
         return byteRangeStart;
@@ -216,11 +198,9 @@ public class GetObjectExtended {
 
     /**
      * byteRangeStart 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Long }
      */
     public void setByteRangeStart(Long value) {
         this.byteRangeStart = value;
@@ -228,11 +208,9 @@ public class GetObjectExtended {
 
     /**
      * byteRangeEnd 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is
+     * {@link Long }
      */
     public Long getByteRangeEnd() {
         return byteRangeEnd;
@@ -240,11 +218,9 @@ public class GetObjectExtended {
 
     /**
      * byteRangeEnd 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Long }
      */
     public void setByteRangeEnd(Long value) {
         this.byteRangeEnd = value;
@@ -252,11 +228,9 @@ public class GetObjectExtended {
 
     /**
      * ifModifiedSince 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getIfModifiedSince() {
         return ifModifiedSince;
@@ -264,11 +238,9 @@ public class GetObjectExtended {
 
     /**
      * ifModifiedSince 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setIfModifiedSince(XMLGregorianCalendar value) {
         this.ifModifiedSince = value;
@@ -276,11 +248,9 @@ public class GetObjectExtended {
 
     /**
      * ifUnmodifiedSince 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getIfUnmodifiedSince() {
         return ifUnmodifiedSince;
@@ -288,11 +258,9 @@ public class GetObjectExtended {
 
     /**
      * ifUnmodifiedSince 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setIfUnmodifiedSince(XMLGregorianCalendar value) {
         this.ifUnmodifiedSince = value;
@@ -300,25 +268,23 @@ public class GetObjectExtended {
 
     /**
      * Gets the value of the ifMatch property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the ifMatch property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getIfMatch().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getIfMatch() {
         if (ifMatch == null) {
@@ -329,25 +295,23 @@ public class GetObjectExtended {
 
     /**
      * Gets the value of the ifNoneMatch property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the ifNoneMatch property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getIfNoneMatch().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getIfNoneMatch() {
         if (ifNoneMatch == null) {
@@ -358,11 +322,9 @@ public class GetObjectExtended {
 
     /**
      * returnCompleteObjectOnConditionFailure 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public Boolean isReturnCompleteObjectOnConditionFailure() {
         return returnCompleteObjectOnConditionFailure;
@@ -370,11 +332,9 @@ public class GetObjectExtended {
 
     /**
      * returnCompleteObjectOnConditionFailure 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setReturnCompleteObjectOnConditionFailure(Boolean value) {
         this.returnCompleteObjectOnConditionFailure = value;
@@ -382,11 +342,9 @@ public class GetObjectExtended {
 
     /**
      * awsAccessKeyId 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAWSAccessKeyId() {
         return awsAccessKeyId;
@@ -394,11 +352,9 @@ public class GetObjectExtended {
 
     /**
      * awsAccessKeyId 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAWSAccessKeyId(String value) {
         this.awsAccessKeyId = value;
@@ -406,11 +362,9 @@ public class GetObjectExtended {
 
     /**
      * timestamp 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getTimestamp() {
         return timestamp;
@@ -418,11 +372,9 @@ public class GetObjectExtended {
 
     /**
      * timestamp 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setTimestamp(XMLGregorianCalendar value) {
         this.timestamp = value;
@@ -430,11 +382,9 @@ public class GetObjectExtended {
 
     /**
      * signature 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSignature() {
         return signature;
@@ -442,11 +392,9 @@ public class GetObjectExtended {
 
     /**
      * signature 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSignature(String value) {
         this.signature = value;
@@ -454,11 +402,9 @@ public class GetObjectExtended {
 
     /**
      * credential 속성의 값을 가져옵니다.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCredential() {
         return credential;
@@ -466,11 +412,9 @@ public class GetObjectExtended {
 
     /**
      * credential 속성의 값을 설정합니다.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCredential(String value) {
         this.credential = value;
