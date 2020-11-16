@@ -18,8 +18,6 @@ public class QueryRequestCommand extends DefaultDynamoRequestCommand {
 
     @Override
     public ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response, String body) {
-        response.setContentType("application/x-amz-json-1.0");
-
         try {
             QueryRequest queryRequest = jsonMapper.readValue(body, QueryRequest.class);
 

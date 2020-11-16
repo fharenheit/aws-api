@@ -51,4 +51,6 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         registration.allowedMethods(HttpMethod.GET.name(), HttpMethod.GET.name(), HttpMethod.POST.name(), HttpMethod.PUT.name(), HttpMethod.DELETE.name());
     }
 
+
+
 }

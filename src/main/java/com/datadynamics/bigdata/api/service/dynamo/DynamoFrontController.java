@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
+import java.util.UUID;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -27,6 +28,8 @@ public class DynamoFrontController {
                                   HttpServletResponse response,
                                   @RequestBody String body) {
         response.setHeader("Content-Type", "application/x-amz-json-1.0");
+        response.setHeader("x-amzn-RequestId", UUID.randomUUID().toString());
+
         DynamoRequestCommand command = requestDispatcher.getCommand(headers, request, body);
         return command.execute(headers, request, response, body);
     }

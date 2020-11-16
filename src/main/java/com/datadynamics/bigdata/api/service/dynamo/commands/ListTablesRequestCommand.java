@@ -21,9 +21,6 @@ public class ListTablesRequestCommand extends DefaultDynamoRequestCommand {
 
     @Override
     public ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response, String body) {
-        response.setHeader("Content-Type", "application/x-amz-json-1.0");
-        response.setHeader("x-amzn-RequestId", UUID.randomUUID().toString());
-
         String username = getUsername(request);
         try {
             ListTablesRequest listTablesRequest = jsonMapper.readValue(body, ListTablesRequest.class);
