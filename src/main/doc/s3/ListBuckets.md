@@ -78,8 +78,3 @@ s3_client = session.client(
 
 print(s3_client.list_buckets())
 ```
-
-## 논의 대상
-
-* 사용자가 버킷 목록을 요청하면 어떤 것들을 리턴해야 하는가?
-  * ALL USER용 버킷 목록? + 자신의 버킷 목록?

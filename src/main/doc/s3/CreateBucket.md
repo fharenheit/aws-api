@@ -49,9 +49,3 @@ Content-Length: 0
 Connection: close
 Server: AmazonS3
 ```
-
-## 논의 대상
-
-* 사용자당 1개의 버킷이 있는데 버킷을 생성하면 어떤 버킷을 생성하는 것인지?
-  * 관리자용인가?
-  * 버킷 생성시 권한은?
