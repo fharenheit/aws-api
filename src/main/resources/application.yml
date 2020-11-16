@@ -64,6 +64,8 @@ app:
     iam: /iam
     dynamo: /dynamo
   dynamo:
+    headers:
+      amz-target-prefix: DynamoDB_20120810
     datasource:
       oracle:
         url: jdbc:log4jdbc:oracle:thin:@localhost:1521:xe
@@ -93,6 +95,7 @@ app:
     hdfs-configuration-path:
       core-site: classpath:/hdfs/core-site.xml
       hdfs-site: classpath:/hdfs/hdfs-site.xml
+    user-bucket-path: ${namenode}/DataLake/%s
     bucket-mapping:
       master: ${namenode}/DataLake/master
 

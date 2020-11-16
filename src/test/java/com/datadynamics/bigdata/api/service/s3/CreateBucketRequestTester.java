@@ -22,6 +22,7 @@ public class CreateBucketRequestTester {
         clientConfiguration.setProxyProtocol(Protocol.HTTP);
         clientConfiguration.setProxyHost("server");
         clientConfiguration.setProxyPort(80);
+        clientConfiguration.setMaxErrorRetry(0); // 0로 하지 않으면 여러번 호출한다.
 
         AmazonS3ClientBuilder builder = AmazonS3ClientBuilder.standard();
         builder.setCredentials(new AWSStaticCredentialsProvider(awsCreds));

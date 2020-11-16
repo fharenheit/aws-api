@@ -207,9 +207,7 @@
             <artifactId>jdbc</artifactId>
             <version>5.1.4.000275</version>
             <scope>system</scope>
-            <systemPath>
-                ${basedir}/src/main/resources/lib/PROGRESS_DATADIRECT_JDBC_DRIVER_PIVOTAL_GREENPLUM_5.1.4.000275.jar
-            </systemPath>
+            <systemPath>${basedir}/src/main/resources/lib/PROGRESS_DATADIRECT_JDBC_DRIVER_PIVOTAL_GREENPLUM_5.1.4.000275.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -333,6 +331,24 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- ===================== -->
+        <!--  DynamoDB Dependency  -->
+        <!-- ===================== -->
+
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>DynamoDBLocal</artifactId>
+            <version>1.13.5</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/lib/DynamoDBLocal.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.5</version>
         </dependency>
     </dependencies>
 
