@@ -23,6 +23,7 @@
         <mysql.version>8.0.22</mysql.version>
         <hikaricp.version>3.4.5</hikaricp.version>
         <swagger.version>3.0.0</swagger.version>
+        <hadoop.version>2.7.2</hadoop.version>
     </properties>
 
     <build>
@@ -73,24 +74,24 @@
             </plugin>
 
             <!--
-                        <plugin>
-                            <groupId>com.mysema.maven</groupId>
-                            <artifactId>apt-maven-plugin</artifactId>
-                            <version>${maven.apt.version}</version>
-                            <executions>
-                                <execution>
-                                    <goals>
-                                        <goal>process</goal>
-                                    </goals>
-                                    <configuration>
-                                        <outputDirectory>target/generated-sources/java</outputDirectory>
-                                        <processor>
-                                            com.querydsl.apt.jpa.JPAAnnotationProcessor,lombok.launch.AnnotationProcessorHider$AnnotationProcessor
-                                        </processor>
-                                    </configuration>
-                                </execution>
-                            </executions>
-                        </plugin>
+                <plugin>
+                    <groupId>com.mysema.maven</groupId>
+                    <artifactId>apt-maven-plugin</artifactId>
+                    <version>${maven.apt.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>process</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>target/generated-sources/java</outputDirectory>
+                                <processor>
+                                    com.querydsl.apt.jpa.JPAAnnotationProcessor,lombok.launch.AnnotationProcessorHider$AnnotationProcessor
+                                </processor>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
             -->
         </plugins>
     </build>
@@ -115,14 +116,6 @@
             <artifactId>spring-context-support</artifactId>
         </dependency>
 
-        <!--
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-hadoop</artifactId>
-                <version>${spring.hadoop.version}</version>
-            </dependency>
-        -->
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -141,6 +134,62 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+
+        <!-- =================== -->
+        <!--  Hadoop Dependency  -->
+        <!-- =================== -->
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>${hadoop.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>tomcat</groupId>
+                    <artifactId>jasper-compiler</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>tomcat</groupId>
+                    <artifactId>jasper-runtime</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet.jsp</groupId>
+                    <artifactId>jsp-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>${hadoop.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet.jsp</groupId>
+                    <artifactId>jsp-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- ================= -->

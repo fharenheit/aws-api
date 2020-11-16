@@ -1,7 +1,6 @@
 package com.datadynamics.bigdata.api.config;
 
 import com.amazonaws.HttpMethod;
-import com.datadynamics.bigdata.api.shared.RequestAndResponseLoggingFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -47,17 +46,4 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         CorsRegistration registration = registry.addMapping("/**");
         registration.allowedMethods(HttpMethod.GET.name(), HttpMethod.GET.name(), HttpMethod.POST.name(), HttpMethod.PUT.name(), HttpMethod.DELETE.name());
     }
-
-    /**
-     * 개발을 위해서 HTTP에 대한 필터를 적용한다.
-     * 운영시 사용하지 않는다.
-     */
-//    @Bean
-    public FilterRegistrationBean<RequestAndResponseLoggingFilter> loggingFilter() {
-        FilterRegistrationBean<RequestAndResponseLoggingFilter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new RequestAndResponseLoggingFilter());
-        registrationBean.addUrlPatterns("/*");
-        return registrationBean;
-    }
-
 }
