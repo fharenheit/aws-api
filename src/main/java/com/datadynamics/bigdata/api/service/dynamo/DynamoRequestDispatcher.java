@@ -59,6 +59,10 @@ public class DynamoRequestDispatcher implements InitializingBean, ApplicationCon
         this.commands = commands;
     }
 
+    public List<DynamoRequestCommand> getCommands() {
+        return commands;
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         if (commands == null) {
