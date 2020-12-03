@@ -7,6 +7,7 @@
         <property name="commands">
             <list>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateUserIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateGroupIamRequestCommand"/>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.ListAccessKeysIamRequestCommand"/>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateUserIamRequestCommand"/>
             </list>

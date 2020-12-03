@@ -19,15 +19,9 @@ import java.sql.Timestamp;
 public class Group {
 
     /**
-     * 부서코드
-     */
-    @Id
-    @Column(name = "group_code", columnDefinition = "VARCHAR(10)")
-    String group_code;
-
-    /**
      * 부서명
      */
+    @Id
     @Column(name = "group_name", columnDefinition = "VARCHAR(100)")
     String groupName;
 
