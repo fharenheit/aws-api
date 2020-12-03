@@ -25,6 +25,14 @@ public class User {
     @Column(name = "username", columnDefinition = "VARCHAR(20)", nullable = false)
     String username;
 
+    @Column(name = "tags", columnDefinition = "VARCHAR(255)")
+    String tags;
+
+    @Column(name = "permission_boundary", columnDefinition = "VARCHAR(255)")
+    String permissionBoundary;
+
+    ////////////////////////////////////////////////////////////////////////
+
     /**
      * 이름
      */

@@ -41,11 +41,12 @@ public class IamRequestDispatcher implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         if (commands == null) {
-            throw new IllegalArgumentException("S3 Command를 지정해 주십시오.");
+            throw new IllegalArgumentException("IAM Command를 지정해 주십시오.");
         }
 
         this.commandMap = new HashMap<>();
         this.commands.forEach(command -> {
+            log.debug("IAM Command를 추가합니다 : {} --> {}", command.getName(), command.getClass().getName());
             commandMap.put(command.getName(), command);
         });
     }
