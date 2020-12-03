@@ -10,6 +10,6 @@ public interface IamRequestCommand {
 
     String getName();
 
-    ResponseEntity execute(Map<String, String> headers, HttpServletRequest request, HttpServletResponse response, String body);
+    ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body);
 
 }

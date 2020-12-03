@@ -17,7 +17,7 @@ public class IamRequestDispatcher implements InitializingBean {
 
     List<IamRequestCommand> commands;
 
-    public IamRequestCommand getCommand(Map<String, String> headers, HttpServletRequest request, String body) {
+    public IamRequestCommand getCommand(HttpServletRequest request, String body) {
         String[] entries = body.split("&");
         String command = null;
         for (String entry : entries) {

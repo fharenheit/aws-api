@@ -5,6 +5,7 @@ import lombok.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 @Getter
 @Setter
@@ -12,6 +13,7 @@ import javax.xml.bind.annotation.XmlElement;
 @Builder
 @AllArgsConstructor
 @XmlAccessorType(value = XmlAccessType.FIELD)
+@XmlType(name = "ResponseMetadata")
 public class ResponseMetadata {
 
     @XmlElement(name = "RequestId")
