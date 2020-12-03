@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -45,7 +46,7 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
         String requestId = UUID.randomUUID().toString();
         Map<String, String> requestParams = parseRequestBody(body);
         String userName = requestParams.get("UserName");
-        String path = requestParams.get("Path"); // 실제 쓸모가 없음
+        String path = requestParams.get("Path"); // 디렉토리처럼 user Name 이외에도 구분자로 사용한다. 이 값이 다르면 동일 사용자라도 다른 사용자가 된다.
         String permissionsBoundary = requestParams.get("PermissionsBoundary"); // 실체 파악 필요
 
         CreateUserResponse createUserResponse = IamModelUtils.createUser(requestId, path, userName, userName, arn(path, userName));
@@ -59,7 +60,7 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
                 // EntityAlreadyExists : 409
                 return ResponseEntity.status(409).body(createUserResponse);
             }
-            this.userRepository.save(User.builder().tags(json(tags)).username(userName).name(userName).permissionBoundary(permissionsBoundary).build());
+            this.userRepository.save(User.builder().tags(json(tags)).username(userName).name(userName).permissionBoundary(permissionsBoundary).createTime(new Timestamp(System.currentTimeMillis())).build());
         } catch (IOException e) {
             // InvalidInput : 409
             return ResponseEntity.badRequest().body(createUserResponse);

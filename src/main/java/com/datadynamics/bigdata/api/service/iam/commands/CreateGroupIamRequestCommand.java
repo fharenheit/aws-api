@@ -1,10 +1,12 @@
 package com.datadynamics.bigdata.api.service.iam.commands;
 
 import com.datadynamics.bigdata.api.service.iam.model.Group;
+import com.datadynamics.bigdata.api.service.iam.model.GroupId;
 import com.datadynamics.bigdata.api.service.iam.model.http.CreateGroupResponse;
 import com.datadynamics.bigdata.api.service.iam.repository.GroupRepository;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
@@ -34,16 +37,18 @@ public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand imple
         String requestId = UUID.randomUUID().toString();
         Map<String, String> requestParams = parseRequestBody(body);
         String groupName = requestParams.get("GroupName");
+        String path = StringUtils.isEmpty(requestParams.get("Path")) ? "/" : requestParams.get("Path");
 
         CreateGroupResponse createGroupResponse = IamModelUtils.createGroup(requestId, groupName, arn(groupName), null);
 
-        Optional<Group> byId = this.groupRepository.findById(groupName);
+        GroupId groupId = GroupId.builder().groupName(groupName).path(path).build();
+        Optional<Group> byId = this.groupRepository.findById(groupId);
         if (byId.isPresent()) {
             // EntityAlreadyExists : 409
             return ResponseEntity.status(409).body(createGroupResponse);
         }
 
-        Group group = Group.builder().groupName(groupName).build();
+        Group group = Group.builder().groupId(groupId).createTime(new Timestamp(System.currentTimeMillis())).build();
         this.groupRepository.save(group);
 
         createGroupResponse.getCreateGroupResult().getGroup().setCreateDate(group.getCreateTime());

@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
@@ -18,12 +19,8 @@ import java.sql.Timestamp;
 @Entity(name = "api_iam_group")
 public class Group {
 
-    /**
-     * 부서명
-     */
-    @Id
-    @Column(name = "group_name", columnDefinition = "VARCHAR(100)")
-    String groupName;
+    @EmbeddedId
+    private GroupId groupId;
 
     /**
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)
