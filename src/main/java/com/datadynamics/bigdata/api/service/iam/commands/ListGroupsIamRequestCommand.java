@@ -7,7 +7,6 @@ import com.datadynamics.bigdata.api.service.iam.repository.GroupRepository;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -45,11 +44,16 @@ public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implem
         if (byId.isPresent()) {
             listGroupsResponse = IamModelUtils.listGroups(requestId, byId.get());
         } else {
-            listGroupsResponse = new ListGroupsResponse();
-            ResponseMetadata responseMetadata = ResponseMetadata.builder().requestId(requestId).build();
-            listGroupsResponse.setResponseMetadata(responseMetadata);
+            listGroupsResponse = getEmptyResponse(requestId);
         }
         return ResponseEntity.ok(listGroupsResponse);
+    }
+
+    private ListGroupsResponse getEmptyResponse(String requestId) {
+        ListGroupsResponse listGroupsResponse = new ListGroupsResponse();
+        ResponseMetadata responseMetadata = ResponseMetadata.builder().requestId(requestId).build();
+        listGroupsResponse.setResponseMetadata(responseMetadata);
+        return listGroupsResponse;
     }
 
     @Override

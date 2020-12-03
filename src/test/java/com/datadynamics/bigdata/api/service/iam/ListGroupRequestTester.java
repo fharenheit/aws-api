@@ -1,5 +1,6 @@
 package com.datadynamics.bigdata.api.service.iam;
 
+import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
@@ -18,6 +19,11 @@ public class ListGroupRequestTester {
         AmazonIdentityManagementClientBuilder builder = AmazonIdentityManagementClientBuilder.standard();
         builder.setCredentials(new AWSStaticCredentialsProvider(awsCreds));
         builder.setEndpointConfiguration(configuration);
+
+        ClientConfiguration clientConfiguration = new ClientConfiguration();
+        clientConfiguration.setMaxErrorRetry(0); // 0로 하지 않으면 여러번 호출한다.
+        builder.setClientConfiguration(clientConfiguration);
+
         final AmazonIdentityManagement iam = builder.build();
 
         ListGroupsRequest request = new ListGroupsRequest();
