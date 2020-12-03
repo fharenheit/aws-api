@@ -52,10 +52,6 @@ public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implem
         return ResponseEntity.ok(listGroupsResponse);
     }
 
-    public String arn(String groupName) {
-        return String.format("arn:aws:iam::%s:group/%s", RandomUtils.nextInt(), groupName);
-    }
-
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
