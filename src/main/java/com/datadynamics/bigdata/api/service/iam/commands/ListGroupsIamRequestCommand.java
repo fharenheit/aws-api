@@ -1,8 +1,8 @@
 package com.datadynamics.bigdata.api.service.iam.commands;
 
 import com.datadynamics.bigdata.api.service.iam.model.Group;
-import com.datadynamics.bigdata.api.service.iam.model.GroupId;
-import com.datadynamics.bigdata.api.service.iam.model.http.CreateGroupResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.ListGroupsResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.repository.GroupRepository;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -17,13 +17,13 @@ import org.springframework.web.util.UriUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.Charset;
-import java.sql.Timestamp;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
-public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
+public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
@@ -31,30 +31,25 @@ public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand imple
 
     @Override
     public String getName() {
-        return "CreateGroup";
+        return "ListGroups";
     }
 
     @Override
     public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) {
         String requestId = UUID.randomUUID().toString();
         Map<String, String> requestParams = parseRequestBody(body);
-        String groupName = requestParams.get("GroupName");
-        String path = StringUtils.isEmpty(requestParams.get("Path")) ? "/" : UriUtils.decode(requestParams.get("Path"), Charset.defaultCharset());
+        String pathPrefix = StringUtils.isEmpty(requestParams.get("PathPrefix")) ? "/" : UriUtils.decode(requestParams.get("PathPrefix"), Charset.defaultCharset());
 
-        CreateGroupResponse createGroupResponse = IamModelUtils.createGroup(requestId, groupName, arn(groupName), null);
-
-        GroupId groupId = GroupId.builder().groupName(groupName).path(path).build();
-        Optional<Group> byId = this.groupRepository.findById(groupId);
+        Optional<List<Group>> byId = this.groupRepository.findGroupsWithPathPrefix(pathPrefix);
+        ListGroupsResponse listGroupsResponse = null;
         if (byId.isPresent()) {
-            // EntityAlreadyExists : 409
-            return ResponseEntity.status(409).body(createGroupResponse);
+            listGroupsResponse = IamModelUtils.listGroups(requestId, byId.get());
+        } else {
+            listGroupsResponse = new ListGroupsResponse();
+            ResponseMetadata responseMetadata = ResponseMetadata.builder().requestId(requestId).build();
+            listGroupsResponse.setResponseMetadata(responseMetadata);
         }
-
-        Group group = Group.builder().groupId(groupId).createTime(new Timestamp(System.currentTimeMillis())).build();
-        this.groupRepository.save(group);
-
-        createGroupResponse.getCreateGroupResult().getGroup().setCreateDate(group.getCreateTime());
-        return ResponseEntity.ok(createGroupResponse);
+        return ResponseEntity.ok(listGroupsResponse);
     }
 
     public String arn(String groupName) {
