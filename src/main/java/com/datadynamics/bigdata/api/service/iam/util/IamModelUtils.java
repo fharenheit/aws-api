@@ -1,10 +1,7 @@
 package com.datadynamics.bigdata.api.service.iam.util;
 
 import com.amazonaws.services.identitymanagement.model.*;
-import com.datadynamics.bigdata.api.service.iam.model.http.CreateGroupResponse;
-import com.datadynamics.bigdata.api.service.iam.model.http.CreateUserResponse;
-import com.datadynamics.bigdata.api.service.iam.model.http.ListGroupsResponse;
-import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
+import com.datadynamics.bigdata.api.service.iam.model.http.*;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.util.Date;
@@ -56,5 +53,21 @@ public class IamModelUtils {
 
         ResponseMetadata responseMetadata = ResponseMetadata.builder().requestId(requestId).build();
         return ListGroupsResponse.builder().listGroupsResult(listGroupsResult).responseMetadata(responseMetadata).build();
+    }
+
+    public static ListUsersResponse listUsers(String requestId, List<com.datadynamics.bigdata.api.service.iam.model.User> users) {
+        ListUsersResult listUsersResult = new ListUsersResult();
+        users.stream().forEach(user -> {
+            String username = user.getName();
+
+            User g = new User();
+            g.setUserName(username);
+            g.setUserId(username);
+            g.setArn(String.format("arn:aws:iam::%s:user%s%s", RandomUtils.nextInt(), "/", username));
+            listUsersResult.getUsers().add(g);
+        });
+
+        ResponseMetadata responseMetadata = ResponseMetadata.builder().requestId(requestId).build();
+        return ListUsersResponse.builder().listUsersResult(listUsersResult).responseMetadata(responseMetadata).build();
     }
 }
