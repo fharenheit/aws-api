@@ -26,7 +26,7 @@ public class Group {
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)
      */
     @CreationTimestamp
-    @Column(name = "create_ts", insertable = false, updatable = false)
+    @Column(name = "create_ts", insertable = true, updatable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp createTime;
 
@@ -34,7 +34,7 @@ public class Group {
      * 변경일 (이 필드에는 값을 입력하지 않아도 Hibernate가 UPDATE시 자동으로 기록)
      */
     @UpdateTimestamp
-    @Column(name = "update_ts", insertable = false, updatable = false)
+    @Column(name = "update_ts", insertable = true, updatable = true)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp updateTime;
 }

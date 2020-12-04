@@ -3,6 +3,7 @@ package com.datadynamics.bigdata.api.service.iam.util;
 import com.amazonaws.services.identitymanagement.model.User;
 import com.amazonaws.services.identitymanagement.model.*;
 import com.datadynamics.bigdata.api.service.iam.model.AccessKeyStatus;
+import com.datadynamics.bigdata.api.service.iam.model.http.CreateUserResult;
 import com.datadynamics.bigdata.api.service.iam.model.http.ListUsersResult;
 import com.datadynamics.bigdata.api.service.iam.model.http.*;
 import org.apache.commons.lang3.RandomUtils;
@@ -14,7 +15,7 @@ public class IamModelUtils {
 
     public static CreateUserResponse createUser(String requestId, String path, String userName, String userId, String arn) {
         CreateUserResult createUserResult = new CreateUserResult();
-        User user = new User();
+        com.datadynamics.bigdata.api.service.iam.model.http.User user = new com.datadynamics.bigdata.api.service.iam.model.http.User();
         user.setArn(arn);
         user.setUserId(userId);
         user.setUserName(userName);

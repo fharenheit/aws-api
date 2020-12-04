@@ -8,6 +8,7 @@ import com.datadynamics.bigdata.api.service.iam.model.http.GetUserResult;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.repository.CredentialRepository;
 import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
+import com.datadynamics.bigdata.api.service.iam.service.UserService;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -31,14 +32,9 @@ public class GetUserIamRequestCommand extends IamDefaultRequestCommand implement
     private ApplicationContext applicationContext;
 
     /**
-     * User Repository
+     * User Service
      */
-    private UserRepository userRepository;
-
-    /**
-     * Credential Repository
-     */
-    private CredentialRepository credentialRepository;
+    private UserService userService;
 
     @Override
     public String getName() {
@@ -57,12 +53,12 @@ public class GetUserIamRequestCommand extends IamDefaultRequestCommand implement
         }
 
         // Request의 사용자가 실제로 존재하지 않으면 404를 리턴한다.
-        Optional<User> byId = userRepository.findById(UserId.builder().path("/").username(userName).build());
+        Optional<User> byId = userService.getUserByUserId(UserId.builder().path("/").username(userName).build());
         if (!byId.isPresent()) {
             return ResponseEntity.notFound().build();
         }
 
-        Optional<Credential> credentialById = credentialRepository.findById(userName);
+        Optional<Credential> credentialById = userService.getCredentialByUserId(userName);
 
         GetUserResult getUserResult = new GetUserResult();
         if (credentialById.isPresent()) {
@@ -88,7 +84,6 @@ public class GetUserIamRequestCommand extends IamDefaultRequestCommand implement
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        this.userRepository = applicationContext.getBean(UserRepository.class);
-        this.credentialRepository = applicationContext.getBean(CredentialRepository.class);
+        this.userService = applicationContext.getBean(UserService.class);
     }
 }

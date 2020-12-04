@@ -1,9 +1,11 @@
 package com.datadynamics.bigdata.api.service.iam.model.http;
 
-import com.amazonaws.services.identitymanagement.model.CreateUserResult;
 import lombok.*;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Getter
 @Setter

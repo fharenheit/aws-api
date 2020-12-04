@@ -75,7 +75,6 @@ public class CreateAccessKeyIamRequestCommand extends IamDefaultRequestCommand i
                     .username(userName)
                     .uuid(uuid)
                     .status(AccessKeyStatus.Active)
-                    .createTime(new Timestamp(System.currentTimeMillis()))
                     .build();
             credentialRepository.save(credential);
         }

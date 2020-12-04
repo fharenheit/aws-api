@@ -4,6 +4,7 @@ import com.datadynamics.bigdata.api.service.iam.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.UserId;
 import com.datadynamics.bigdata.api.service.iam.model.http.CreateUserResponse;
 import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
+import com.datadynamics.bigdata.api.service.iam.service.UserService;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,7 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
 
     private ApplicationContext applicationContext;
 
-    private UserRepository userRepository;
+    private UserService userService;
 
     private ObjectMapper objectMapper;
 
@@ -54,7 +55,7 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
         Map<String, String> tags = tags(requestParams);
         UserId userId = UserId.builder().username(userName).path(path).build();
         try {
-            Optional<User> byId = this.userRepository.findById(userId);
+            Optional<User> byId = this.userService.getUserByUserId(userId);
             if (byId.isPresent()) {
                 // EntityAlreadyExists : 409
                 return ResponseEntity.status(409).body(createUserResponse);
@@ -63,9 +64,8 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
                     .tags(json(tags))
                     .userId(userId)
                     .permissionBoundary(permissionsBoundary)
-                    .createTime(new Timestamp(System.currentTimeMillis()))
                     .build();
-            this.userRepository.save(user);
+            this.userService.saveUser(user);
         } catch (IOException e) {
             // InvalidInput : 409
             return ResponseEntity.badRequest().body(createUserResponse);
@@ -103,7 +103,7 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        this.userRepository = applicationContext.getBean(UserRepository.class);
+        this.userService = applicationContext.getBean(UserService.class);
         this.objectMapper = (ObjectMapper) applicationContext.getBean("mapper");
     }
 }

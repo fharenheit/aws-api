@@ -31,7 +31,7 @@ public class CreateUserRequestTester {
 
         final AmazonIdentityManagement iam = builder.build();
 
-        CreateUserRequest request = new CreateUserRequest("fharenheit1");
+        CreateUserRequest request = new CreateUserRequest("fharenheit4");
         request.setPath("/");
         request.setPermissionsBoundary("blahblahblahblahblah"); // 실체 파악 필요
         request.setTags(toTags("user", "test"));
