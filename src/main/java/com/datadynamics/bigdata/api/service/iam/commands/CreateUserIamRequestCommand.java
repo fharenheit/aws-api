@@ -39,12 +39,6 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
         return "CreateUser";
     }
 
-    // Action=CreateUser&Version=2010-05-08
-    // &Path=%2Fdivision_abc%2Fsubdivision_xyz%2F
-    // &UserName=helloworld
-    // &PermissionsBoundary=blahblahblahblahblah&
-    // Tags.member.1.Key=name&Tags.member.1.Value=hong&Tags.member.2.Key=depart&Tags.member.2.Value=C101
-
     @Override
     public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) throws Exception {
         String requestId = UUID.randomUUID().toString();
