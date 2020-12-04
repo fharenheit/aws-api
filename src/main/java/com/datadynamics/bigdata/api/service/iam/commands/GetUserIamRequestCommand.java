@@ -20,12 +20,24 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * IAM GetUser Action
+ */
 public class GetUserIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
+    /**
+     * Spring Framework Application Context
+     */
     private ApplicationContext applicationContext;
 
+    /**
+     * User Repository
+     */
     private UserRepository userRepository;
 
+    /**
+     * Credential Repository
+     */
     private CredentialRepository credentialRepository;
 
     @Override
@@ -39,10 +51,12 @@ public class GetUserIamRequestCommand extends IamDefaultRequestCommand implement
         Map<String, String> requestParams = parseRequestBody(body);
         String userName = requestParams.get("UserName");
 
+        // 사용자명이 Request에 들어오지 않는 경우 404를 리턴한다.
         if (StringUtils.isEmpty(userName)) {
             return ResponseEntity.notFound().build();
         }
 
+        // Request의 사용자가 실제로 존재하지 않으면 404를 리턴한다.
         Optional<User> byId = userRepository.findById(UserId.builder().path("/").username(userName).build());
         if (!byId.isPresent()) {
             return ResponseEntity.notFound().build();
@@ -52,6 +66,7 @@ public class GetUserIamRequestCommand extends IamDefaultRequestCommand implement
 
         GetUserResult getUserResult = new GetUserResult();
         if (credentialById.isPresent()) {
+            // 이미 Access Key가 등록된 적이 있다면 조회한 정보를 그대로 리턴한다.
             com.datadynamics.bigdata.api.service.iam.model.http.User user = new com.datadynamics.bigdata.api.service.iam.model.http.User();
             user.setUserId(byId.get().getUserId().getUsername());
             user.setUserName(byId.get().getUserId().getUsername());
@@ -62,13 +77,13 @@ public class GetUserIamRequestCommand extends IamDefaultRequestCommand implement
             getUserResult.setUser(user);
         }
 
+        // 사용자가 없는 경우 사용자 정보는 없고 Response만 구성한다.
         GetUserResponse res = GetUserResponse.builder()
                 .getUserResult(getUserResult)
                 .responseMetadata(ResponseMetadata.builder().requestId(requestId).build())
                 .build();
         return ResponseEntity.ok(res);
     }
-
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
