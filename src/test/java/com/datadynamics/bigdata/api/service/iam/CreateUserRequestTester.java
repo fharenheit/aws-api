@@ -32,8 +32,8 @@ public class CreateUserRequestTester {
 
         final AmazonIdentityManagement iam = builder.build();
 
-        CreateUserRequest request = new CreateUserRequest("helloworld");
-        request.setPath("/division_abc/subdivision_xyz/");
+        CreateUserRequest request = new CreateUserRequest("fharenheit");
+        request.setPath("/");
         request.setPermissionsBoundary("blahblahblahblahblah"); // 실체 파악 필요
         request.setTags(toTags("user", "test"));
         CreateUserResult response = iam.createUser(request);

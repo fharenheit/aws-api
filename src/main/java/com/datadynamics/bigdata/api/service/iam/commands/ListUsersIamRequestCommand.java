@@ -1,10 +1,8 @@
 package com.datadynamics.bigdata.api.service.iam.commands;
 
-import com.datadynamics.bigdata.api.service.iam.model.Group;
 import com.datadynamics.bigdata.api.service.iam.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.http.ListUsersResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
-import com.datadynamics.bigdata.api.service.iam.repository.GroupRepository;
 import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -36,19 +34,19 @@ public class ListUsersIamRequestCommand extends IamDefaultRequestCommand impleme
     }
 
     @Override
-    public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) {
+    public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) throws Exception {
         String requestId = UUID.randomUUID().toString();
         Map<String, String> requestParams = parseRequestBody(body);
         String pathPrefix = StringUtils.isEmpty(requestParams.get("PathPrefix")) ? "/" : UriUtils.decode(requestParams.get("PathPrefix"), Charset.defaultCharset());
 
         Optional<List<User>> byId = this.userRepository.findUsersWithPathPrefix(pathPrefix);
-        ListUsersResponse ListUsersResponse = null;
+        ListUsersResponse listUsersResponse = null;
         if (byId.isPresent()) {
-            ListUsersResponse = IamModelUtils.listUsers(requestId, byId.get());
+            listUsersResponse = IamModelUtils.listUsers(requestId, byId.get());
         } else {
-            ListUsersResponse = getEmptyResponse(requestId);
+            listUsersResponse = getEmptyResponse(requestId);
         }
-        return ResponseEntity.ok(ListUsersResponse);
+        return ResponseEntity.ok(listUsersResponse);
     }
 
     private ListUsersResponse getEmptyResponse(String requestId) {

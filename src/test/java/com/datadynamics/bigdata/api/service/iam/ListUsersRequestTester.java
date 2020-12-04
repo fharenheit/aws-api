@@ -6,10 +6,12 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
 import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
-import com.amazonaws.services.identitymanagement.model.CreateAccessKeyRequest;
-import com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult;
+import com.amazonaws.services.identitymanagement.model.ListGroupsRequest;
+import com.amazonaws.services.identitymanagement.model.ListGroupsResult;
+import com.amazonaws.services.identitymanagement.model.ListUsersRequest;
+import com.amazonaws.services.identitymanagement.model.ListUsersResult;
 
-public class CreateAccessKeyRequestTester {
+public class ListUsersRequestTester {
 
     public static void main(String[] args) {
         BasicAWSCredentials awsCreds = new BasicAWSCredentials("admin", "admin123");
@@ -26,9 +28,10 @@ public class CreateAccessKeyRequestTester {
 
         final AmazonIdentityManagement iam = builder.build();
 
-        // Access Key를 생성하려면 해당 사용자가 존재해야 하나 존재하지 않는 경우 404를 리턴한다.
-        CreateAccessKeyRequest request = new CreateAccessKeyRequest().withUserName("fharenheit");
-        CreateAccessKeyResult response = iam.createAccessKey(request);
+        ListUsersRequest request = new ListUsersRequest();
+        request.setPathPrefix("/");
+        ListUsersResult listUsersResult = iam.listUsers(request);
+        System.out.println(listUsersResult);
     }
 
 }

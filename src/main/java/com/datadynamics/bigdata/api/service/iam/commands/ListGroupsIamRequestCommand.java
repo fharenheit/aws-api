@@ -34,7 +34,7 @@ public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implem
     }
 
     @Override
-    public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) {
+    public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) throws Exception {
         String requestId = UUID.randomUUID().toString();
         Map<String, String> requestParams = parseRequestBody(body);
         String pathPrefix = StringUtils.isEmpty(requestParams.get("PathPrefix")) ? "/" : UriUtils.decode(requestParams.get("PathPrefix"), Charset.defaultCharset());

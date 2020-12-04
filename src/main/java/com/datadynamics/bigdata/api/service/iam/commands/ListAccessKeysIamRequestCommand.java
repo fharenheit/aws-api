@@ -17,7 +17,7 @@ public class ListAccessKeysIamRequestCommand extends IamDefaultRequestCommand im
     }
 
     @Override
-    public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) {
+    public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) throws Exception {
         Map<String, String> localCommand = parseRequestBody(body);
         String userName = localCommand.get("UserName");
         if (StringUtils.isEmpty(userName)) {

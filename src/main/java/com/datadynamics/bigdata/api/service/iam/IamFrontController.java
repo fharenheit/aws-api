@@ -2,6 +2,7 @@ package com.datadynamics.bigdata.api.service.iam;
 
 import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,11 @@ public class IamFrontController {
                                   HttpServletResponse response,
                                   @RequestBody String body) {
         IamRequestCommand command = requestDispatcher.getCommand(request, body);
-        return command.execute(request, response, body);
+        try {
+            return command.execute(request, response, body);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
 }

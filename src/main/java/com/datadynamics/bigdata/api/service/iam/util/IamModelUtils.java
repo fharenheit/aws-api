@@ -1,6 +1,8 @@
 package com.datadynamics.bigdata.api.service.iam.util;
 
 import com.amazonaws.services.identitymanagement.model.*;
+import com.datadynamics.bigdata.api.service.iam.model.AccessKeyStatus;
+import com.datadynamics.bigdata.api.service.iam.model.http.ListUsersResult;
 import com.datadynamics.bigdata.api.service.iam.model.http.*;
 import org.apache.commons.lang3.RandomUtils;
 
@@ -57,17 +59,33 @@ public class IamModelUtils {
 
     public static ListUsersResponse listUsers(String requestId, List<com.datadynamics.bigdata.api.service.iam.model.User> users) {
         ListUsersResult listUsersResult = new ListUsersResult();
-        users.stream().forEach(user -> {
-            String username = user.getName();
+        for (com.datadynamics.bigdata.api.service.iam.model.User user : users) {
+            String username = user.getUserId().getUsername();
+            String path = user.getUserId().getPath();
 
             User g = new User();
             g.setUserName(username);
             g.setUserId(username);
+            g.setPath(path);
             g.setArn(String.format("arn:aws:iam::%s:user%s%s", RandomUtils.nextInt(), "/", username));
             listUsersResult.getUsers().add(g);
-        });
+        }
+
+        // 페이징 처리할 때 사용하며 이 값이 True인 경우 Marker도 지정해야 한다.
+        listUsersResult.setIsTruncated(false);
 
         ResponseMetadata responseMetadata = ResponseMetadata.builder().requestId(requestId).build();
         return ListUsersResponse.builder().listUsersResult(listUsersResult).responseMetadata(responseMetadata).build();
+    }
+
+    public static CreateAccessKeyResponse createAccessKey(String userName, String accessKey, String secretKey, AccessKeyStatus status) {
+        CreateAccessKeyResult createAccessKeyResult = new CreateAccessKeyResult();
+        AccessKey key = new AccessKey();
+        key.setAccessKeyId(accessKey);
+        key.setUserName(userName);
+        key.setStatus(status.getValue());
+        key.setSecretAccessKey(secretKey);
+        createAccessKeyResult.setAccessKey(key);
+        return CreateAccessKeyResponse.builder().createAccessKeyResult(createAccessKeyResult).build();
     }
 }

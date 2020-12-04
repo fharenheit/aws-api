@@ -46,7 +46,7 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
     // Tags.member.1.Key=name&Tags.member.1.Value=hong&Tags.member.2.Key=depart&Tags.member.2.Value=C101
 
     @Override
-    public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) {
+    public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) throws Exception {
         String requestId = UUID.randomUUID().toString();
         Map<String, String> requestParams = parseRequestBody(body);
         String userName = requestParams.get("UserName");
@@ -65,7 +65,13 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
                 // EntityAlreadyExists : 409
                 return ResponseEntity.status(409).body(createUserResponse);
             }
-            this.userRepository.save(User.builder().tags(json(tags)).userId(userId).permissionBoundary(permissionsBoundary).createTime(new Timestamp(System.currentTimeMillis())).build());
+            User user = User.builder()
+                    .tags(json(tags))
+                    .userId(userId)
+                    .permissionBoundary(permissionsBoundary)
+                    .createTime(new Timestamp(System.currentTimeMillis()))
+                    .build();
+            this.userRepository.save(user);
         } catch (IOException e) {
             // InvalidInput : 409
             return ResponseEntity.badRequest().body(createUserResponse);
