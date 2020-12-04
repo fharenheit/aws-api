@@ -26,12 +26,8 @@ public class ListAccessKeysRequestTester {
 
         final AmazonIdentityManagement iam = builder.build();
 
-        ListAccessKeysRequest request1 = new ListAccessKeysRequest();
-        ListAccessKeysResult result1 = iam.listAccessKeys(request1);
-        System.out.println(result1.toString());
-
-        ListAccessKeysRequest request2 = new ListAccessKeysRequest().withUserName("fharenheit");
-        ListAccessKeysResult result2 = iam.listAccessKeys(request2);
+        ListAccessKeysRequest request = new ListAccessKeysRequest().withUserName("fharenheit");
+        ListAccessKeysResult result2 = iam.listAccessKeys(request);
         System.out.println(result2.toString());
     }
 

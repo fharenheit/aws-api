@@ -1,7 +1,14 @@
 package com.datadynamics.bigdata.api.service.iam.commands;
 
-import com.amazonaws.services.identitymanagement.model.StatusType;
+import com.datadynamics.bigdata.api.service.iam.model.Credential;
+import com.datadynamics.bigdata.api.service.iam.model.User;
+import com.datadynamics.bigdata.api.service.iam.model.UserId;
 import com.datadynamics.bigdata.api.service.iam.model.http.*;
+import com.datadynamics.bigdata.api.service.iam.repository.CredentialRepository;
+import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 
@@ -9,7 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
-public class ListAccessKeysIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand {
+public class ListAccessKeysIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
+
+    private ApplicationContext applicationContext;
+
+    private UserRepository userRepository;
+
+    private CredentialRepository credentialRepository;
 
     @Override
     public String getName() {
@@ -18,33 +31,48 @@ public class ListAccessKeysIamRequestCommand extends IamDefaultRequestCommand im
 
     @Override
     public ResponseEntity execute(HttpServletRequest request, HttpServletResponse response, String body) throws Exception {
-        Map<String, String> localCommand = parseRequestBody(body);
-        String userName = localCommand.get("UserName");
+        String requestId = UUID.randomUUID().toString();
+        Map<String, String> requestParams = parseRequestBody(body);
+        String userName = requestParams.get("UserName");
+
         if (StringUtils.isEmpty(userName)) {
-            // 모든 사용자의 Access Key를 반환
-        } else {
-            // 특정 사용자의 Access Key만 반환
+            return ResponseEntity.notFound().build();
         }
 
+        Optional<User> byId = userRepository.findById(UserId.builder().path("/").username(userName).build());
+        if (!byId.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Optional<Credential> credentialById = credentialRepository.findById(userName);
         List<Member> members = new ArrayList();
-        members.add(Member.builder()
-                .status(StatusType.Active.toString())
-                .accessKeyId(UUID.randomUUID().toString())
-                .userName("fharenheit")
-                .createDate(new Date())
-                .build());
+        if (credentialById.isPresent()) {
+            members.add(Member.builder()
+                    .status(credentialById.get().getStatus().getValue())
+                    .accessKeyId(credentialById.get().getAccessKey())
+                    .userName(credentialById.get().getUsername())
+                    .createDate(new Date())
+                    .build());
+        }
 
         ListAccessKeysResult listAccessKeysResult = ListAccessKeysResult.builder()
                 .accessKeyMetadata(AccessKeyMetadata.builder().members(members).build())
-                .userName("fharenheit")
+                .userName(credentialById.get().getUsername())
                 .isTruncated(false)
                 .build();
 
         ListAccessKeysResponse res = ListAccessKeysResponse.builder()
                 .listAccessKeysResult(listAccessKeysResult)
-                .responseMetadata(ResponseMetadata.builder().requestId(UUID.randomUUID().toString()).build())
+                .responseMetadata(ResponseMetadata.builder().requestId(requestId).build())
                 .build();
         return ResponseEntity.ok(res);
     }
 
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+        this.userRepository = applicationContext.getBean(UserRepository.class);
+        this.credentialRepository = applicationContext.getBean(CredentialRepository.class);
+    }
 }
