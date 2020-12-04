@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.UUID;
+
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
@@ -24,6 +26,7 @@ public class IamFrontController {
     public ResponseEntity service(HttpServletRequest request,
                                   HttpServletResponse response,
                                   @RequestBody String body) {
+        response.setHeader("x-amzn-RequestId", UUID.randomUUID().toString());
         IamRequestCommand command = requestDispatcher.getCommand(request, body);
         try {
             return command.execute(request, response, body);

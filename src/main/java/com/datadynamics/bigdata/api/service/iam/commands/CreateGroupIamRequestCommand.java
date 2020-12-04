@@ -41,7 +41,7 @@ public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand imple
         String groupName = requestParams.get("GroupName");
         String path = StringUtils.isEmpty(requestParams.get("Path")) ? "/" : UriUtils.decode(requestParams.get("Path"), Charset.defaultCharset());
 
-        CreateGroupResponse createGroupResponse = IamModelUtils.createGroup(requestId, groupName, arn(groupName), null);
+        CreateGroupResponse createGroupResponse = IamModelUtils.createGroup(requestId, groupName, arn(path, groupName), null);
 
         GroupId groupId = GroupId.builder().groupName(groupName).path(path).build();
         Optional<Group> byId = this.groupRepository.findById(groupId);
@@ -57,8 +57,8 @@ public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand imple
         return ResponseEntity.ok(createGroupResponse);
     }
 
-    public String arn(String groupName) {
-        return String.format("arn:aws:iam::%s:group/%s", RandomUtils.nextInt(), groupName);
+    public String arn(String path, String groupName) {
+        return String.format("arn:aws:iam::%s:group%s%s", RandomUtils.nextInt(), path.endsWith("/") ? path : path + "/", groupName);
     }
 
     @Override

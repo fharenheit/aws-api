@@ -74,8 +74,8 @@ public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implem
         return ResponseEntity.ok(createUserResponse);
     }
 
-    public String arn(String path, String username) {
-        return String.format("arn:aws:iam::%s:user%s/%s", RandomUtils.nextInt(), path, username);
+    public static String arn(String path, String username) {
+        return String.format("arn:aws:iam::%s:user%s%s", RandomUtils.nextInt(), path.endsWith("/") ? path : path + "/", username);
     }
 
     public Map<String, String> tags(Map<String, String> requestParams) {

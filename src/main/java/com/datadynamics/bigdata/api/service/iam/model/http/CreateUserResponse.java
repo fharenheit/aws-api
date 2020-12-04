@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.*;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@XmlRootElement(name = "CreateUserResponse ", namespace = "https://iam.amazonaws.com/doc/2010-05-08/")
+@XmlRootElement(name = "CreateUserResponse", namespace = "https://iam.amazonaws.com/doc/2010-05-08/")
 @XmlAccessorType(value = XmlAccessType.FIELD)
 public class CreateUserResponse {
 
