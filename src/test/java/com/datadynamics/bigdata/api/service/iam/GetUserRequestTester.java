@@ -29,6 +29,7 @@ public class GetUserRequestTester {
         GetUserRequest request = new GetUserRequest();
         request.setUserName("fharenheit");
         GetUserResult getUserResult = iam.getUser(request);
+
         System.out.println(getUserResult.getUser().getPath());
         System.out.println(getUserResult.getUser().getUserId());
         System.out.println(getUserResult.getUser().getUserName());

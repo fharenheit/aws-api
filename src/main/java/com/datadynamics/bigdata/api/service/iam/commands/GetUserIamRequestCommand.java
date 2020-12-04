@@ -1,10 +1,10 @@
 package com.datadynamics.bigdata.api.service.iam.commands;
 
-import com.amazonaws.services.identitymanagement.model.GetUserResult;
 import com.datadynamics.bigdata.api.service.iam.model.Credential;
 import com.datadynamics.bigdata.api.service.iam.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.UserId;
 import com.datadynamics.bigdata.api.service.iam.model.http.GetUserResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.GetUserResult;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.repository.CredentialRepository;
 import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
@@ -52,8 +52,9 @@ public class GetUserIamRequestCommand extends IamDefaultRequestCommand implement
 
         GetUserResult getUserResult = new GetUserResult();
         if (credentialById.isPresent()) {
-            com.amazonaws.services.identitymanagement.model.User user = new com.amazonaws.services.identitymanagement.model.User();
+            com.datadynamics.bigdata.api.service.iam.model.http.User user = new com.datadynamics.bigdata.api.service.iam.model.http.User();
             user.setUserId(byId.get().getUserId().getUsername());
+            user.setUserName(byId.get().getUserId().getUsername());
             user.setPath(byId.get().getUserId().getPath());
             user.setArn(CreateUserIamRequestCommand.arn(byId.get().getUserId().getPath(), byId.get().getUserId().getUsername()));
             user.setCreateDate(byId.get().getCreateTime());
