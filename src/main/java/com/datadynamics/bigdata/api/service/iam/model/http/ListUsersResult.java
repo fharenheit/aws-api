@@ -23,4 +23,14 @@ public class ListUsersResult {
     @XmlElement(name = "Maker")
     private String marker;
 
+    public Users getUsers() {
+        if (this.users == null) {
+            this.users = new Users();
+        }
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
 }
