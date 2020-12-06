@@ -9,7 +9,7 @@ import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientB
 import com.amazonaws.services.identitymanagement.model.ListGroupsRequest;
 import com.amazonaws.services.identitymanagement.model.ListGroupsResult;
 
-public class ListGroupRequestTester {
+public class ListGroupsRequestTester {
 
     public static void main(String[] args) {
         BasicAWSCredentials awsCreds = new BasicAWSCredentials("admin", "admin123");

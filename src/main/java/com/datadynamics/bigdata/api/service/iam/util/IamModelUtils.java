@@ -50,8 +50,7 @@ public class IamModelUtils {
             g.setGroupName(groupName);
             g.setGroupId(groupName);
             g.setArn(String.format("arn:aws:iam::%s:group%s%s", RandomUtils.nextInt(), path, groupName));
-            g.setCreateDate(group.getCreateTime());
-            listGroupsResult.getGroups().add(g);
+            listGroupsResult.getGroups().getMembers().add(g);
         });
 
         ResponseMetadata responseMetadata = ResponseMetadata.builder().requestId(requestId).build();

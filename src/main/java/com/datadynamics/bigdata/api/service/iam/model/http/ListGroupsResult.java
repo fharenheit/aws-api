@@ -5,8 +5,6 @@ import lombok.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -17,7 +15,7 @@ import java.util.List;
 public class ListGroupsResult {
 
     @XmlElement(name = "Groups")
-    private List<Group> groups;
+    private Groups groups;
 
     @XmlElement(name = "IsTruncated")
     private Boolean isTruncated;
@@ -25,19 +23,14 @@ public class ListGroupsResult {
     @XmlElement(name = "Marker")
     private String marker;
 
-    public java.util.List<Group> getGroups() {
-        if (groups == null) {
-            groups = new ArrayList<Group>();
+    public Groups getGroups() {
+        if (this.groups == null) {
+            this.groups = new Groups();
         }
         return groups;
     }
 
-    public void setGroups(java.util.List<Group> groups) {
-        if (groups == null) {
-            this.groups = null;
-            return;
-        }
-        this.groups = new ArrayList<Group>(groups);
+    public void setGroups(Groups groups) {
+        this.groups = groups;
     }
-
 }
