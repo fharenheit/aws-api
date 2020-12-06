@@ -6,8 +6,6 @@ import com.datadynamics.bigdata.api.service.iam.model.UserId;
 import com.datadynamics.bigdata.api.service.iam.model.http.GetUserResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.GetUserResult;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
-import com.datadynamics.bigdata.api.service.iam.repository.CredentialRepository;
-import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
 import com.datadynamics.bigdata.api.service.iam.service.UserService;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

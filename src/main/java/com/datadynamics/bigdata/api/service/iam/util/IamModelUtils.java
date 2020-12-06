@@ -1,6 +1,5 @@
 package com.datadynamics.bigdata.api.service.iam.util;
 
-import com.amazonaws.services.identitymanagement.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.AccessKeyStatus;
 import com.datadynamics.bigdata.api.service.iam.model.http.*;
 import org.apache.commons.lang3.RandomUtils;
@@ -61,12 +60,13 @@ public class IamModelUtils {
             String username = user.getUserId().getUsername();
             String path = user.getUserId().getPath();
 
-            User g = new User();
-            g.setUserName(username);
-            g.setUserId(username);
-            g.setPath(path);
-            g.setArn(String.format("arn:aws:iam::%s:user%s%s", RandomUtils.nextInt(), "/", username));
-            listUsersResult.getUsers().add(g);
+            com.datadynamics.bigdata.api.service.iam.model.http.User u = new User();
+            u.setUserName(username);
+            u.setUserId(username);
+            u.setPath(path);
+            u.setArn(String.format("arn:aws:iam::%s:user%s%s", RandomUtils.nextInt(), "/", username));
+            u.setPasswordLastUsed(new Date());
+            listUsersResult.getUsers().getMembers().add(u);
         }
 
         // 페이징 처리할 때 사용하며 이 값이 True인 경우 Marker도 지정해야 한다.

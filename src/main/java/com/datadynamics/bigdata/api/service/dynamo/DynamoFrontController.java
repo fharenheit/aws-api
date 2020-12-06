@@ -22,7 +22,7 @@ public class DynamoFrontController {
     @Autowired
     DynamoRequestDispatcher requestDispatcher;
 
-    @RequestMapping(method = {GET, POST, PUT, DELETE, PATCH},   produces = "application/x-amz-json-1.0")
+    @RequestMapping(method = {GET, POST, PUT, DELETE, PATCH}, produces = "application/x-amz-json-1.0")
     public ResponseEntity service(@RequestHeader Map<String, String> headers,
                                   HttpServletRequest request,
                                   HttpServletResponse response,
