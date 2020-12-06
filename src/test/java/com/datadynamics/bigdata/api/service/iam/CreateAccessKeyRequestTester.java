@@ -29,6 +29,8 @@ public class CreateAccessKeyRequestTester {
         // Access Key를 생성하려면 해당 사용자가 존재해야 하나 존재하지 않는 경우 404를 리턴한다.
         CreateAccessKeyRequest request = new CreateAccessKeyRequest().withUserName("fharenheit");
         CreateAccessKeyResult response = iam.createAccessKey(request);
+
+        System.out.println(response);
     }
 
 }

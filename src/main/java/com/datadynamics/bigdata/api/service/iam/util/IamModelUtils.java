@@ -1,7 +1,5 @@
 package com.datadynamics.bigdata.api.service.iam.util;
 
-import com.amazonaws.services.identitymanagement.model.AccessKey;
-import com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult;
 import com.amazonaws.services.identitymanagement.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.AccessKeyStatus;
 import com.datadynamics.bigdata.api.service.iam.model.http.*;
