@@ -25,8 +25,14 @@ import java.util.UUID;
 @Slf4j
 public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
+    /**
+     * Spring Framework Application Context
+     */
     private ApplicationContext applicationContext;
 
+    /**
+     * Group Service
+     */
     private GroupService groupService;
 
     @Override

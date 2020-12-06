@@ -27,10 +27,19 @@ import java.util.UUID;
 @Slf4j
 public class CreateUserIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
+    /**
+     * Spring Framework Application Context
+     */
     private ApplicationContext applicationContext;
 
+    /**
+     * User Service
+     */
     private UserService userService;
 
+    /**
+     * Jackson Object Mapper
+     */
     private ObjectMapper objectMapper;
 
     @Override

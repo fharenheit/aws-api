@@ -18,8 +18,14 @@ import java.util.*;
 
 public class ListAccessKeysIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
+    /**
+     * Spring Framework Application Context
+     */
     private ApplicationContext applicationContext;
 
+    /**
+     * User Repository
+     */
     private UserRepository userRepository;
 
     private CredentialRepository credentialRepository;

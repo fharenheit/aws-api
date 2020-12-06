@@ -25,10 +25,16 @@ import java.util.UUID;
 
 public class CreateAccessKeyIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
+    /**
+     * Spring Framework Application Context
+     */
     private ApplicationContext applicationContext;
 
     private UserRepository userRepository;
 
+    /**
+     * Password Encoder
+     */
     private PasswordEncoder passwordEncoder;
 
     private CredentialRepository credentialRepository;

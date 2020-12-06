@@ -3,7 +3,6 @@ package com.datadynamics.bigdata.api.service.iam.commands;
 import com.datadynamics.bigdata.api.service.iam.model.Group;
 import com.datadynamics.bigdata.api.service.iam.model.http.ListGroupsResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
-import com.datadynamics.bigdata.api.service.iam.repository.GroupRepository;
 import com.datadynamics.bigdata.api.service.iam.service.GroupService;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +24,14 @@ import java.util.UUID;
 @Slf4j
 public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
+    /**
+     * Spring Framework Application Context
+     */
     private ApplicationContext applicationContext;
 
+    /**
+     * Group Service
+     */
     private GroupService groupService;
 
     @Override

@@ -24,8 +24,14 @@ import java.util.UUID;
 @Slf4j
 public class ListUsersIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
+    /**
+     * Spring Framework Application Context
+     */
     private ApplicationContext applicationContext;
 
+    /**
+     * User Repository
+     */
     private UserRepository userRepository;
 
     @Override
