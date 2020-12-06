@@ -1,10 +1,9 @@
 package com.datadynamics.bigdata.api.service.iam.util;
 
+import com.amazonaws.services.identitymanagement.model.AccessKey;
+import com.amazonaws.services.identitymanagement.model.CreateAccessKeyResult;
 import com.amazonaws.services.identitymanagement.model.User;
-import com.amazonaws.services.identitymanagement.model.*;
 import com.datadynamics.bigdata.api.service.iam.model.AccessKeyStatus;
-import com.datadynamics.bigdata.api.service.iam.model.http.CreateUserResult;
-import com.datadynamics.bigdata.api.service.iam.model.http.ListUsersResult;
 import com.datadynamics.bigdata.api.service.iam.model.http.*;
 import org.apache.commons.lang3.RandomUtils;
 
@@ -41,7 +40,7 @@ public class IamModelUtils {
     }
 
     public static ListGroupsResponse listGroups(String requestId, List<com.datadynamics.bigdata.api.service.iam.model.Group> groups) {
-        ListGroupsResult listGroupsResult = new ListGroupsResult();
+        com.datadynamics.bigdata.api.service.iam.model.http.ListGroupsResult listGroupsResult = new ListGroupsResult();
         groups.stream().forEach(group -> {
             String groupName = group.getGroupId().getGroupName();
             String path = group.getGroupId().getPath();

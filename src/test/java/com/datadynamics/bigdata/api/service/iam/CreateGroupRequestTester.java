@@ -26,7 +26,7 @@ public class CreateGroupRequestTester {
 
         final AmazonIdentityManagement iam = builder.build();
 
-        CreateGroupRequest request = new CreateGroupRequest("admin");
+        CreateGroupRequest request = new CreateGroupRequest("admin1");
         request.setPath("/");
         CreateGroupResult response = iam.createGroup(request);
         System.out.println(response);

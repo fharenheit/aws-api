@@ -1,6 +1,5 @@
 package com.datadynamics.bigdata.api.service.iam.model.http;
 
-import com.amazonaws.services.identitymanagement.model.CreateGroupResult;
 import lombok.*;
 
 import javax.xml.bind.annotation.XmlAccessType;

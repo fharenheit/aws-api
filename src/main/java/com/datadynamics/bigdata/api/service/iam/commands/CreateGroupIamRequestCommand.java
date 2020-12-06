@@ -50,7 +50,7 @@ public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand imple
             return ResponseEntity.status(409).body(createGroupResponse);
         }
 
-        Group group = Group.builder().groupId(groupId).createTime(new Timestamp(System.currentTimeMillis())).build();
+        Group group = Group.builder().groupId(groupId).build();
         this.groupRepository.save(group);
 
         createGroupResponse.getCreateGroupResult().getGroup().setCreateDate(group.getCreateTime());
