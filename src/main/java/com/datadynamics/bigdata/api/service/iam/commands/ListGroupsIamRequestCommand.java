@@ -4,6 +4,7 @@ import com.datadynamics.bigdata.api.service.iam.model.Group;
 import com.datadynamics.bigdata.api.service.iam.model.http.ListGroupsResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.repository.GroupRepository;
+import com.datadynamics.bigdata.api.service.iam.service.GroupService;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -26,7 +27,7 @@ public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implem
 
     private ApplicationContext applicationContext;
 
-    private GroupRepository groupRepository;
+    private GroupService groupService;
 
     @Override
     public String getName() {
@@ -39,7 +40,7 @@ public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implem
         Map<String, String> requestParams = parseRequestBody(body);
         String pathPrefix = StringUtils.isEmpty(requestParams.get("PathPrefix")) ? "/" : UriUtils.decode(requestParams.get("PathPrefix"), Charset.defaultCharset());
 
-        Optional<List<Group>> byId = this.groupRepository.findGroupsWithPathPrefix(pathPrefix);
+        Optional<List<Group>> byId = this.groupService.getGroupsWithPathPrefix(pathPrefix);
         ListGroupsResponse listGroupsResponse = null;
         if (byId.isPresent()) {
             listGroupsResponse = IamModelUtils.listGroups(requestId, byId.get());
@@ -59,6 +60,6 @@ public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implem
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        this.groupRepository = applicationContext.getBean(GroupRepository.class);
+        this.groupService = applicationContext.getBean(GroupService.class);
     }
 }

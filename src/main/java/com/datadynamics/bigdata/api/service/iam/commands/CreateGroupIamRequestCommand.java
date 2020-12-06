@@ -4,6 +4,7 @@ import com.datadynamics.bigdata.api.service.iam.model.Group;
 import com.datadynamics.bigdata.api.service.iam.model.GroupId;
 import com.datadynamics.bigdata.api.service.iam.model.http.CreateGroupResponse;
 import com.datadynamics.bigdata.api.service.iam.repository.GroupRepository;
+import com.datadynamics.bigdata.api.service.iam.service.GroupService;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -26,7 +27,7 @@ public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand imple
 
     private ApplicationContext applicationContext;
 
-    private GroupRepository groupRepository;
+    private GroupService groupService;
 
     @Override
     public String getName() {
@@ -43,14 +44,14 @@ public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand imple
         CreateGroupResponse createGroupResponse = IamModelUtils.createGroup(requestId, groupName, arn(path, groupName), null);
 
         GroupId groupId = GroupId.builder().groupName(groupName).path(path).build();
-        Optional<Group> byId = this.groupRepository.findById(groupId);
+        Optional<Group> byId = this.groupService.getGroupById(groupId);
         if (byId.isPresent()) {
             // EntityAlreadyExists : 409
             return ResponseEntity.status(409).body(createGroupResponse);
         }
 
         Group group = Group.builder().groupId(groupId).build();
-        this.groupRepository.save(group);
+        this.groupService.save(group);
 
         createGroupResponse.getCreateGroupResult().getGroup().setCreateDate(group.getCreateTime());
         return ResponseEntity.ok(createGroupResponse);
@@ -63,6 +64,6 @@ public class CreateGroupIamRequestCommand extends IamDefaultRequestCommand imple
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        this.groupRepository = applicationContext.getBean(GroupRepository.class);
+        this.groupService = applicationContext.getBean(GroupService.class);
     }
 }
