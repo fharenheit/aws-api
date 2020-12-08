@@ -6,14 +6,20 @@
     <bean id="iamRequestDispatcher" class="com.datadynamics.bigdata.api.service.iam.IamRequestDispatcher">
         <property name="commands">
             <list>
+                <!-- User -->
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateUserIamRequestCommand"/>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.ListUsersIamRequestCommand"/>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.GetUserIamRequestCommand"/>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateGroupIamRequestCommand"/>
+
+                <!-- Group -->
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.ListGroupsIamRequestCommand"/>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.AddUserToGroupIamRequestCommand"/>
+
+                <!-- Access Key -->
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateAccessKeyIamRequestCommand"/>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.ListAccessKeysIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.DeleteAccessKeyIamRequestCommand"/>
             </list>
         </property>
     </bean>
