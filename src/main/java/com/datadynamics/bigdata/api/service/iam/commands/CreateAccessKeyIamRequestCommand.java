@@ -30,6 +30,9 @@ public class CreateAccessKeyIamRequestCommand extends IamDefaultRequestCommand i
      */
     private ApplicationContext applicationContext;
 
+    /**
+     * User Repository
+     */
     private UserRepository userRepository;
 
     /**
@@ -37,6 +40,9 @@ public class CreateAccessKeyIamRequestCommand extends IamDefaultRequestCommand i
      */
     private PasswordEncoder passwordEncoder;
 
+    /**
+     * Credential Repository
+     */
     private CredentialRepository credentialRepository;
 
     @Override
