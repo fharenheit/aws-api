@@ -52,4 +52,14 @@ public class GroupServiceImpl implements GroupService {
         UserToGroup utg = UserToGroup.builder().userToGroupId(id).build();
         userToGroupRepository.save(utg);
     }
+
+    @Override
+    public Optional<List<UserToGroup>> getUserToGroup(GroupId groupId) {
+        return userToGroupRepository.findUserToGroupByGroupPathAndGroupName(groupId.getPath(), groupId.getGroupName());
+    }
+
+    @Override
+    public void deleteUserToGroup(GroupId groupId) {
+        userToGroupRepository.deleteUserToGroup(groupId.getPath(), groupId.getGroupName());
+    }
 }

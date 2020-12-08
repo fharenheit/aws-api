@@ -64,7 +64,6 @@ public class DeleteAccessKeyIamRequestCommand extends IamDefaultRequestCommand i
         DeleteAccessKeyResponse deleteAccessKeyResponse = new DeleteAccessKeyResponse();
         deleteAccessKeyResponse.setResponseMetadata(responseMetadata);
 
-
         Optional<Credential> credentialById = credentialRepository.findCredentialByUsernameAndAccessKey(userName, accessKeyId);
         if (credentialById.isPresent()) {
             // Username과 Access Key로 사용자를 찾은 후 삭제한다.

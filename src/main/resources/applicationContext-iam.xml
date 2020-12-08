@@ -15,6 +15,7 @@
                 <!-- Group -->
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.ListGroupsIamRequestCommand"/>
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.AddUserToGroupIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.DeleteGroupIamRequestCommand"/>
 
                 <!-- Access Key -->
                 <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateAccessKeyIamRequestCommand"/>

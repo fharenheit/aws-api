@@ -17,13 +17,13 @@ public class UserToGroupId implements Serializable {
     @Column(name = "user_path", columnDefinition = "VARCHAR(255)")
     private String userPath;
 
-    @Column(name = "username", columnDefinition = "VARCHAR(100)", nullable = false, unique = true)
+    @Column(name = "username", columnDefinition = "VARCHAR(100)", nullable = false)
     private String userName;
 
     @Column(name = "group_path", columnDefinition = "VARCHAR(255)")
     private String groupPath;
 
-    @Column(name = "group_name", columnDefinition = "VARCHAR(100)", nullable = false, unique = true)
+    @Column(name = "group_name", columnDefinition = "VARCHAR(100)", nullable = false)
     private String groupName;
 
 }
