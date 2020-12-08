@@ -5,7 +5,7 @@ import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.model.Group;
 import com.datadynamics.bigdata.api.service.iam.model.GroupId;
 import com.datadynamics.bigdata.api.service.iam.model.UserToGroup;
-import com.datadynamics.bigdata.api.service.iam.model.http.DeleteGroupResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.group.DeleteGroupResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.service.GroupService;
 import lombok.extern.slf4j.Slf4j;

@@ -3,7 +3,7 @@ package com.datadynamics.bigdata.api.service.iam.commands.user;
 import com.datadynamics.bigdata.api.service.iam.commands.IamDefaultRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.model.User;
-import com.datadynamics.bigdata.api.service.iam.model.http.ListUsersResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.user.ListUsersResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;

@@ -1,4 +1,4 @@
-package com.datadynamics.bigdata.api.service.iam.model.http;
+package com.datadynamics.bigdata.api.service.iam.model.http.group;
 
 import lombok.*;
 
@@ -12,17 +12,21 @@ import javax.xml.bind.annotation.XmlElement;
 @Builder
 @AllArgsConstructor
 @XmlAccessorType(value = XmlAccessType.FIELD)
-public class Member {
+public class Group {
 
-    @XmlElement(name = "UserName")
-    private String userName;
+    @XmlElement(name = "Path")
+    private String path;
 
-    @XmlElement(name = "AccessKeyId")
-    private String accessKeyId;
+    @XmlElement(name = "GroupName")
+    private String groupName;
 
-    @XmlElement(name = "Status")
-    private String status;
+    @XmlElement(name = "GroupId")
+    private String groupId;
+
+    @XmlElement(name = "Arn")
+    private String arn;
 
     @XmlElement(name = "CreateDate")
     private java.util.Date createDate;
+
 }

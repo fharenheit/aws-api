@@ -4,7 +4,7 @@ import com.datadynamics.bigdata.api.service.iam.commands.IamDefaultRequestComman
 import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.UserId;
-import com.datadynamics.bigdata.api.service.iam.model.http.CreateUserResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.user.CreateUserResponse;
 import com.datadynamics.bigdata.api.service.iam.service.UserService;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;

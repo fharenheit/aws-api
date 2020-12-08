@@ -1,5 +1,6 @@
-package com.datadynamics.bigdata.api.service.iam.model.http;
+package com.datadynamics.bigdata.api.service.iam.model.http.user;
 
+import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import lombok.*;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -12,12 +13,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@XmlRootElement(name = "ListAccessKeysResponse", namespace = "https://iam.amazonaws.com/doc/2010-05-08/")
+@XmlRootElement(name = "CreateUserResponse", namespace = "https://iam.amazonaws.com/doc/2010-05-08/")
 @XmlAccessorType(value = XmlAccessType.FIELD)
-public class ListAccessKeysResponse {
+public class CreateUserResponse {
 
-    @XmlElement(name = "ListAccessKeysResult")
-    ListAccessKeysResult listAccessKeysResult;
+    @XmlElement(name = "CreateUserResult")
+    CreateUserResult createUserResult;
 
     @XmlElement(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;

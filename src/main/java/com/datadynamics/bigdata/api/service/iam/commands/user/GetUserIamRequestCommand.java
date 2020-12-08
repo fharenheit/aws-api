@@ -5,8 +5,8 @@ import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.model.Credential;
 import com.datadynamics.bigdata.api.service.iam.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.UserId;
-import com.datadynamics.bigdata.api.service.iam.model.http.GetUserResponse;
-import com.datadynamics.bigdata.api.service.iam.model.http.GetUserResult;
+import com.datadynamics.bigdata.api.service.iam.model.http.user.GetUserResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.user.GetUserResult;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.service.UserService;
 import org.springframework.beans.BeansException;
@@ -63,7 +63,7 @@ public class GetUserIamRequestCommand extends IamDefaultRequestCommand implement
         GetUserResult getUserResult = new GetUserResult();
         if (credentialById.isPresent()) {
             // 이미 Access Key가 등록된 적이 있다면 조회한 정보를 그대로 리턴한다.
-            com.datadynamics.bigdata.api.service.iam.model.http.User user = new com.datadynamics.bigdata.api.service.iam.model.http.User();
+            com.datadynamics.bigdata.api.service.iam.model.http.user.User user = new com.datadynamics.bigdata.api.service.iam.model.http.user.User();
             user.setUserId(byId.get().getUserId().getUsername());
             user.setUserName(byId.get().getUserId().getUsername());
             user.setPath(byId.get().getUserId().getPath());

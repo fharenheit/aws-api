@@ -4,8 +4,7 @@ import com.datadynamics.bigdata.api.service.iam.commands.IamDefaultRequestComman
 import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.model.Group;
 import com.datadynamics.bigdata.api.service.iam.model.GroupId;
-import com.datadynamics.bigdata.api.service.iam.model.http.CreateGroupResponse;
-import com.datadynamics.bigdata.api.service.iam.repository.GroupRepository;
+import com.datadynamics.bigdata.api.service.iam.model.http.group.CreateGroupResponse;
 import com.datadynamics.bigdata.api.service.iam.service.GroupService;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;

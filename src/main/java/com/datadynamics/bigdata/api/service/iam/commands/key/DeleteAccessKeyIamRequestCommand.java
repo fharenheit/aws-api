@@ -5,7 +5,7 @@ import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.model.Credential;
 import com.datadynamics.bigdata.api.service.iam.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.UserId;
-import com.datadynamics.bigdata.api.service.iam.model.http.DeleteAccessKeyResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.key.DeleteAccessKeyResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.repository.CredentialRepository;
 import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
@@ -14,8 +14,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

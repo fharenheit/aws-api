@@ -2,6 +2,11 @@ package com.datadynamics.bigdata.api.service.iam.util;
 
 import com.datadynamics.bigdata.api.service.iam.model.AccessKeyStatus;
 import com.datadynamics.bigdata.api.service.iam.model.http.*;
+import com.datadynamics.bigdata.api.service.iam.model.http.group.*;
+import com.datadynamics.bigdata.api.service.iam.model.http.key.AccessKey;
+import com.datadynamics.bigdata.api.service.iam.model.http.key.CreateAccessKeyResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.key.CreateAccessKeyResult;
+import com.datadynamics.bigdata.api.service.iam.model.http.user.*;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.util.Date;
@@ -11,7 +16,7 @@ public class IamModelUtils {
 
     public static CreateUserResponse createUser(String requestId, String path, String userName, String userId, String arn) {
         CreateUserResult createUserResult = new CreateUserResult();
-        com.datadynamics.bigdata.api.service.iam.model.http.User user = new com.datadynamics.bigdata.api.service.iam.model.http.User();
+        User user = new User();
         user.setArn(arn);
         user.setUserId(userId);
         user.setUserName(userName);
@@ -37,7 +42,7 @@ public class IamModelUtils {
     }
 
     public static ListGroupsResponse listGroups(String requestId, List<com.datadynamics.bigdata.api.service.iam.model.Group> groups) {
-        com.datadynamics.bigdata.api.service.iam.model.http.ListGroupsResult listGroupsResult = new ListGroupsResult();
+        ListGroupsResult listGroupsResult = new ListGroupsResult();
         groups.stream().forEach(group -> {
             String groupName = group.getGroupId().getGroupName();
             String path = group.getGroupId().getPath();
@@ -60,7 +65,7 @@ public class IamModelUtils {
             String username = user.getUserId().getUsername();
             String path = user.getUserId().getPath();
 
-            com.datadynamics.bigdata.api.service.iam.model.http.User u = new User();
+            User u = new User();
             u.setUserName(username);
             u.setUserId(username);
             u.setPath(path);

@@ -6,7 +6,7 @@ import com.datadynamics.bigdata.api.service.iam.model.Group;
 import com.datadynamics.bigdata.api.service.iam.model.GroupId;
 import com.datadynamics.bigdata.api.service.iam.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.UserId;
-import com.datadynamics.bigdata.api.service.iam.model.http.AddUserToGroupResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.group.AddUserToGroupResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.service.GroupService;
 import com.datadynamics.bigdata.api.service.iam.service.UserService;

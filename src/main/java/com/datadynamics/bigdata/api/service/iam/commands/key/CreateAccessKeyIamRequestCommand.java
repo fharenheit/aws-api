@@ -6,7 +6,7 @@ import com.datadynamics.bigdata.api.service.iam.model.AccessKeyStatus;
 import com.datadynamics.bigdata.api.service.iam.model.Credential;
 import com.datadynamics.bigdata.api.service.iam.model.User;
 import com.datadynamics.bigdata.api.service.iam.model.UserId;
-import com.datadynamics.bigdata.api.service.iam.model.http.CreateAccessKeyResponse;
+import com.datadynamics.bigdata.api.service.iam.model.http.key.CreateAccessKeyResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
 import com.datadynamics.bigdata.api.service.iam.repository.CredentialRepository;
 import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
