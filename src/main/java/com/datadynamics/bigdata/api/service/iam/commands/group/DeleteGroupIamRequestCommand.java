@@ -1,5 +1,7 @@
-package com.datadynamics.bigdata.api.service.iam.commands;
+package com.datadynamics.bigdata.api.service.iam.commands.group;
 
+import com.datadynamics.bigdata.api.service.iam.commands.IamDefaultRequestCommand;
+import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.model.Group;
 import com.datadynamics.bigdata.api.service.iam.model.GroupId;
 import com.datadynamics.bigdata.api.service.iam.model.UserToGroup;

@@ -7,20 +7,20 @@
         <property name="commands">
             <list>
                 <!-- User -->
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateUserIamRequestCommand"/>
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.ListUsersIamRequestCommand"/>
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.GetUserIamRequestCommand"/>
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateGroupIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.user.CreateUserIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.user.ListUsersIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.user.GetUserIamRequestCommand"/>
 
                 <!-- Group -->
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.ListGroupsIamRequestCommand"/>
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.AddUserToGroupIamRequestCommand"/>
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.DeleteGroupIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.group.CreateGroupIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.group.ListGroupsIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.group.AddUserToGroupIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.group.DeleteGroupIamRequestCommand"/>
 
                 <!-- Access Key -->
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.CreateAccessKeyIamRequestCommand"/>
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.ListAccessKeysIamRequestCommand"/>
-                <bean class="com.datadynamics.bigdata.api.service.iam.commands.DeleteAccessKeyIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.key.CreateAccessKeyIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.key.ListAccessKeysIamRequestCommand"/>
+                <bean class="com.datadynamics.bigdata.api.service.iam.commands.key.DeleteAccessKeyIamRequestCommand"/>
             </list>
         </property>
     </bean>

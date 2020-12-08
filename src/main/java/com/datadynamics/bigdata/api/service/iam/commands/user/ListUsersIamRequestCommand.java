@@ -1,9 +1,11 @@
-package com.datadynamics.bigdata.api.service.iam.commands;
+package com.datadynamics.bigdata.api.service.iam.commands.user;
 
-import com.datadynamics.bigdata.api.service.iam.model.Group;
-import com.datadynamics.bigdata.api.service.iam.model.http.ListGroupsResponse;
+import com.datadynamics.bigdata.api.service.iam.commands.IamDefaultRequestCommand;
+import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
+import com.datadynamics.bigdata.api.service.iam.model.User;
+import com.datadynamics.bigdata.api.service.iam.model.http.ListUsersResponse;
 import com.datadynamics.bigdata.api.service.iam.model.http.ResponseMetadata;
-import com.datadynamics.bigdata.api.service.iam.service.GroupService;
+import com.datadynamics.bigdata.api.service.iam.repository.UserRepository;
 import com.datadynamics.bigdata.api.service.iam.util.IamModelUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -22,7 +24,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
-public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
+public class ListUsersIamRequestCommand extends IamDefaultRequestCommand implements IamRequestCommand, ApplicationContextAware {
 
     /**
      * Spring Framework Application Context
@@ -30,13 +32,13 @@ public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implem
     private ApplicationContext applicationContext;
 
     /**
-     * Group Service
+     * User Repository
      */
-    private GroupService groupService;
+    private UserRepository userRepository;
 
     @Override
     public String getName() {
-        return "ListGroups";
+        return "ListUsers";
     }
 
     @Override
@@ -45,26 +47,26 @@ public class ListGroupsIamRequestCommand extends IamDefaultRequestCommand implem
         Map<String, String> requestParams = parseRequestBody(body);
         String pathPrefix = StringUtils.isEmpty(requestParams.get("PathPrefix")) ? "/" : UriUtils.decode(requestParams.get("PathPrefix"), Charset.defaultCharset());
 
-        Optional<List<Group>> byId = this.groupService.getGroupsWithPathPrefix(pathPrefix);
-        ListGroupsResponse listGroupsResponse = null;
+        Optional<List<User>> byId = this.userRepository.findUsersWithPathPrefix(pathPrefix);
+        ListUsersResponse listUsersResponse = null;
         if (byId.isPresent()) {
-            listGroupsResponse = IamModelUtils.listGroups(requestId, byId.get());
+            listUsersResponse = IamModelUtils.listUsers(requestId, byId.get());
         } else {
-            listGroupsResponse = getEmptyResponse(requestId);
+            listUsersResponse = getEmptyResponse(requestId);
         }
-        return ResponseEntity.ok(listGroupsResponse);
+        return ResponseEntity.ok(listUsersResponse);
     }
 
-    private ListGroupsResponse getEmptyResponse(String requestId) {
-        ListGroupsResponse listGroupsResponse = new ListGroupsResponse();
+    private ListUsersResponse getEmptyResponse(String requestId) {
+        ListUsersResponse ListUsersResponse = new ListUsersResponse();
         ResponseMetadata responseMetadata = ResponseMetadata.builder().requestId(requestId).build();
-        listGroupsResponse.setResponseMetadata(responseMetadata);
-        return listGroupsResponse;
+        ListUsersResponse.setResponseMetadata(responseMetadata);
+        return ListUsersResponse;
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        this.groupService = applicationContext.getBean(GroupService.class);
+        this.userRepository = applicationContext.getBean(UserRepository.class);
     }
 }

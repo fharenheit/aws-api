@@ -1,5 +1,7 @@
-package com.datadynamics.bigdata.api.service.iam.commands;
+package com.datadynamics.bigdata.api.service.iam.commands.key;
 
+import com.datadynamics.bigdata.api.service.iam.commands.IamDefaultRequestCommand;
+import com.datadynamics.bigdata.api.service.iam.commands.IamRequestCommand;
 import com.datadynamics.bigdata.api.service.iam.model.AccessKeyStatus;
 import com.datadynamics.bigdata.api.service.iam.model.Credential;
 import com.datadynamics.bigdata.api.service.iam.model.User;
