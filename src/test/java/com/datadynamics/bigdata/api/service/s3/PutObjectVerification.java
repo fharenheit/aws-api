@@ -21,15 +21,18 @@ import java.net.URISyntaxException;
         endpoint_url='http://localhost:8080/s3',
     )
 
-    response = client.create_bucket(
+    response = client.put_object(
         ACL='private',
+        Body=b'bytes',
         Bucket='string',
-        GrantFullControl='string',
-        GrantRead='string',
-        GrantReadACP='string',
-        GrantWrite='string',
-        GrantWriteACP='string',
-        ObjectLockEnabledForBucket=True
+        CacheControl='string',
+        ContentDisposition='string',
+        ContentEncoding='string',
+        ContentLanguage='string',
+        ContentLength=5,
+        ContentMD5='string',
+        Key='string',
+        ContentType='string'
     )
 
     print(response)
