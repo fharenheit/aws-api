@@ -340,23 +340,13 @@
             </exclusions>
         </dependency>
 
-        <!-- ===================== -->
-        <!--  DynamoDB Dependency  -->
-        <!-- ===================== -->
-
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
         <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>DynamoDBLocal</artifactId>
-            <version>1.13.5</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/lib/DynamoDBLocal.jar</systemPath>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.11.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr4-runtime</artifactId>
-            <version>4.5</version>
-        </dependency>
     </dependencies>
 
     <!-- ======================= -->
