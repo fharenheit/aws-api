@@ -217,6 +217,11 @@ public class AWS4Signer extends com.datadynamics.bigdata.api.auth.AbstractAWSSig
         for (String header : authorizations) {
             request.getHeaders().put(header, servletRequest.getHeader(header));
         }
+        Map<String, String[]> params = servletRequest.getParameterMap();
+        for(Object key:params.keySet()) {
+            String[] value = params.get(key);
+            request.getParameters().put(key, Arrays.asList(value));
+        }
         sign(request, credential, servletRequest.getHeader("Authorization"));
         return request;
     }
