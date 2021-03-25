@@ -11,6 +11,10 @@ import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,18 +42,15 @@ public class ListBucketsS3RequestCommand extends DefaultS3RequestCommand impleme
 
         String username = getUsername(request);
 
-        // 외부에 노출이 가능하고, 공용 버킷을 모두 조회한다. 요건에 따라서 조회 조건이 변경될 수 있다.
-        List<Bucket> byBuckets = repository.findBucketsBySharedAndExposed();
-        if (byBuckets == null || byBuckets.size() < 1) {
-            // 버킷이 하나도 없다면 빈 응답을 리턴한다.
-            return ResponseEntity.ok(new ListAllMyBucketsResponse());
-        } else {
-            List<String> bucketNames = new ArrayList<>();
-            for (Bucket b : byBuckets) {
-                bucketNames.add(b.getBucketName());
+        File file = new File("C:/");
+        String[] dirs = file.list(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return dir.isDirectory();
             }
-            return ResponseEntity.ok(S3ModelUtils.listBuckets(username, username, bucketNames.toArray(new String[byBuckets.size()])));
-        }
+        });
+
+        return ResponseEntity.ok(S3ModelUtils.listBuckets(username, username, dirs));
     }
 
     @Override

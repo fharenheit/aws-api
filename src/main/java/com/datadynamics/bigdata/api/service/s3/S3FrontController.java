@@ -14,7 +14,7 @@ import java.util.Map;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
-@RequestMapping("/${app.service-context-paths.s3}")
+@RequestMapping("/s3")
 public class S3FrontController {
 
     @Autowired
